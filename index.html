@@ -103,12 +103,34 @@
 
     .hero-video.loaded { opacity: 1; }
 
+    .hero-yt-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-yt-wrap iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh; /* 16/9 * 100vh */
+      height: 100vh;
+      min-width: 100%;
+      min-height: 56.25vw; /* 9/16 * 100vw */
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .hero-yt-wrap iframe.loaded { opacity: 1; }
+
 
     /* Fallback image while video loads */
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('profile.jpg');
+      background-image: url('hero.bg.jpg');
       background-size: cover;
       background-position: center top;
       filter: brightness(0.38) saturate(0.8);
@@ -615,6 +637,8 @@
       height: 86px;
     }
 
+    .logos-ticker-track img.logo-skideal { height: 140px; }
+
 .logos-ticker-track img:hover {
       opacity: 1;
       filter: grayscale(0) brightness(1.1);
@@ -919,11 +943,14 @@
 
       /* Hero */
       .hero { padding: 0 20px 60px; min-height: 100svh; justify-content: center; }
-      .hero-content { gap: 16px; padding-bottom: 0; }
-      .hero h1 { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+      .hero-video { display: none; }
+      .hero-content { flex-direction: column; align-items: center; text-align: center; gap: 16px; padding-bottom: 0; }
+      .hero h1 { font-size: clamp(1.2rem, 6vw, 2rem); white-space: nowrap; letter-spacing: 0.04em; }
       .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; padding: 6px 14px; white-space: nowrap; }
-      .hero-content { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .hero-right { max-width: 100%; text-align: left; }
+      .hero-available { text-align: center; }
+      .hero-buttons { justify-content: center; flex-wrap: nowrap; }
+      .hero-btn { padding: 10px 18px; font-size: 10px; white-space: nowrap; }
+      .hero-right { max-width: 100%; text-align: center; }
 
       /* Films */
       .films-section { padding: 60px 20px; }
@@ -931,15 +958,20 @@
       .tab-btn { padding: 10px 14px; font-size: 10px; }
       .film-info { padding: 18px 20px; }
 
-      /* About — fix: was targeting .about-inner which doesn't exist */
+      /* About */
       .about-section { padding: 60px 20px; }
       .about-card { grid-template-columns: 1fr; }
       .about-img-wrap { order: 1; min-height: 300px; aspect-ratio: 4/3; }
       .about-text { order: 2; padding: 32px 24px; }
 
-      /* Logos */
+      /* Logos — smaller + tighter gap on mobile to show 3+ at once */
       .logos-section { padding: 40px 20px; }
-      .logos-row { gap: 28px; }
+      .logos-ticker-track { gap: 36px; }
+      .logos-ticker-track img { height: 28px; }
+      .logos-ticker-track img.logo-swift { height: 40px; }
+      .logos-ticker-track img.logo-landsman { height: 44px; }
+      .logos-ticker-track img.logo-michelin { height: 24px; }
+      .logos-ticker-track img.logo-columbia { height: 18px; }
 
       /* Contact */
       .contact-section { padding: 72px 20px; }
@@ -969,7 +1001,7 @@
       autoplay muted loop playsinline
       preload="auto"
     >
-      <source src="HERO-REEL.mp4" type="video/mp4" />
+      <source src="HERO-REEL.comp.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-fade"></div>
@@ -987,9 +1019,67 @@
     <div class="hero-border"></div>
   </section>
 
-  <!-- TICKER -->
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-card">
 
+      <!-- Photo LEFT -->
+      <div class="about-img-wrap">
+        <img src="New Profile.jpg" alt="Eliya Kapach" />
+      </div>
 
+      <!-- Text RIGHT -->
+      <div class="about-text">
+        <h3 class="about-heading">Who I am</h3>
+        <p class="about-intro">I'm Eliya — filmmaker, content creator, and visual storyteller.</p>
+        <p>I work with brands that want more than good-looking content —<br/>They want something that makes people feel and respond.</p>
+        <p>
+          My work is rooted in real experiences: travel, speed, silence, movement.
+          I translate those into stories that carry emotion, depth, and presence.
+          Every project is led by me, end-to-end, with full creative control.
+        </p>
+        <p class="highlight">The result?<br/>Films that don't just look impressive — they stay with people.</p>
+
+        <div class="skills-wrap">
+          <p class="skills-label">What I do</p>
+          <div class="skills-tags">
+            <span class="skill-tag">Direction</span>
+            <span class="skill-tag">Cinematography</span>
+            <span class="skill-tag">Color Grading</span>
+            <span class="skill-tag">Editing</span>
+            <span class="skill-tag">Storytelling</span>
+            <span class="skill-tag">Sound Design</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOGOS TICKER -->
+  <section class="logos-section">
+    <p class="logos-label">Brands I've worked with</p>
+    <div class="logos-ticker-wrap">
+      <div class="logos-ticker-track">
+        <!-- Set 1 -->
+        <img src="logos/michelin_cropped.png" alt="Michelin"      class="logo-michelin dark-logo" />
+        <img src="logos/motorace logo.png" alt="Motorace Israel" class="dark-logo" />
+        <img src="logos/swift_cropped.png"  alt="Swift"            class="logo-swift" />
+        <img src="logos/BBQ.png"           alt="BBQ N More"      class="dark-logo" />
+        <img src="logos/columbia.png"      alt="Columbia"        class="logo-columbia" />
+        <img src="logos/landsman_cropped.png" alt="Landsman"     class="logo-landsman" />
+        <img src="SKIDEAL.png"       alt="Skideal"         class="logo-skideal" />
+        <!-- Set 2 — duplicate for seamless loop -->
+        <img src="logos/michelin_cropped.png" alt="Michelin"      class="logo-michelin dark-logo" />
+        <img src="logos/motorace logo.png" alt="Motorace Israel" class="dark-logo" />
+        <img src="logos/swift_cropped.png"  alt="Swift"            class="logo-swift" />
+        <img src="logos/BBQ.png"           alt="BBQ N More"      class="dark-logo" />
+        <img src="logos/columbia.png"      alt="Columbia"        class="logo-columbia" />
+        <img src="logos/landsman_cropped.png" alt="Landsman"     class="logo-landsman" />
+        <img src="SKIDEAL.png"       alt="Skideal"         class="logo-skideal" />
+      </div>
+    </div>
+  </section>
 
   <!-- FILMS -->
   <section class="films-section" id="films">
@@ -1013,60 +1103,6 @@
 
       <!-- VIRAL CONTENT -->
 
-      <div class="film-card" data-category="viral" onclick="openModal('9Tv4DQ926Tk')">
-        <img class="film-thumb" src="thumbnails/Japan_1.2.1.jpeg" alt="Japan" loading="lazy"/>
-        <div class="film-overlay"></div>
-        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <div class="film-info">
-          <span class="film-tag">Viral Content</span>
-          <h3 class="film-title">Short Memories From Japan</h3>
-          <p class="film-desc">Travel content</p>
-        </div>
-      </div>
-
-      <div class="film-card" data-category="viral" onclick="openModal('ziVMkr1RAJg')">
-        <img class="film-thumb" src="thumbnails/Viral travel.jpg" alt="Viral Travel" loading="lazy"/>
-        <div class="film-overlay"></div>
-        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <div class="film-info">
-          <span class="film-tag">Viral Content</span>
-          <h3 class="film-title">The Passion Of Traveling</h3>
-          <p class="film-desc">Travel content</p>
-        </div>
-      </div>
-
-      <div class="film-card" data-category="viral" onclick="openModal('5rKxFxnqDRs')">
-        <img class="film-thumb" src="thumbnails/mongolia-viral.jpg" alt="Mongolia Short" loading="lazy"/>
-        <div class="film-overlay"></div>
-        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <div class="film-info">
-          <span class="film-tag">Viral Content</span>
-          <h3 class="film-title">A Glimpse from MONGOLIA</h3>
-          <p class="film-desc">Travel content</p>
-        </div>
-      </div>
-
-      <div class="film-card" data-category="viral" onclick="openModal('4i17QlgZ00U')">
-        <img class="film-thumb" src="thumbnails/Travel montage.jpg" alt="Travel Montage" loading="lazy"/>
-        <div class="film-overlay"></div>
-        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <div class="film-info">
-          <span class="film-tag">Viral Content</span>
-          <h3 class="film-title">Travel Montage</h3>
-          <p class="film-desc">Travel Content</p>
-        </div>
-      </div>
-
-      <div class="film-card" data-category="viral" onclick="openModal('sEuzJMAd26U')">
-        <img class="film-thumb" src="thumbnails/Travel agency.jpg" alt="Travel Agency" loading="lazy"/>
-        <div class="film-overlay"></div>
-        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <div class="film-info">
-          <span class="film-tag">Viral Content</span>
-          <h3 class="film-title">The Beauty Of KAZBEGI, Georgia</h3>
-          <p class="film-desc">A Video for a Travel Agency</p>
-        </div>
-      </div>
 
       <!-- SHORT TRAVEL FILMS -->
       <div class="film-card" data-category="travel" onclick="openModal('vQZNnYF7PzM')">
@@ -1125,6 +1161,28 @@
       </div>
 
       <!-- COMMERCIALS -->
+      <div class="film-card" data-category="commercial" onclick="openModal('9NpmeWyhrGI')">
+        <img class="film-thumb" src="Skideal1.jpg" alt="Skideal" loading="lazy"/>
+        <div class="film-overlay"></div>
+        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="film-info">
+          <span class="film-tag">Commercial</span>
+          <h3 class="film-title">SKIDEAL</h3>
+          <p class="film-desc">Travel Agency Content</p>
+        </div>
+      </div>
+
+      <div class="film-card" data-category="commercial" onclick="openModal('vmwXxRr4lbM')">
+        <img class="film-thumb" src="Skideal2.jpg" alt="Skideal" loading="lazy"/>
+        <div class="film-overlay"></div>
+        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="film-info">
+          <span class="film-tag">Commercial</span>
+          <h3 class="film-title">SKIDEAL</h3>
+          <p class="film-desc">Travel Agency Content</p>
+        </div>
+      </div>
+
       <div class="film-card" data-category="commercial" onclick="openModal('d3XDuQyPynU')">
         <img class="film-thumb" src="thumbnails/columbia-polo.jpg" alt="Columbia Polo" loading="lazy"/>
         <div class="film-overlay"></div>
@@ -1191,29 +1249,39 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- LOGOS TICKER -->
-  <section class="logos-section">
-    <p class="logos-label">Brands I've worked with</p>
-    <div class="logos-ticker-wrap">
-      <div class="logos-ticker-track">
-        <!-- Set 1 -->
-        <img src="logos/michelin_cropped.png" alt="Michelin"      class="logo-michelin dark-logo" />
-        <img src="logos/motorace logo.png" alt="Motorace Israel" class="dark-logo" />
-        <img src="logos/swift_cropped.png"  alt="Swift"            class="logo-swift" />
-        <img src="logos/BBQ.png"           alt="BBQ N More"      class="dark-logo" />
-        <img src="logos/columbia.png"      alt="Columbia"        class="logo-columbia" />
-        <img src="logos/landsman_cropped.png" alt="Landsman"     class="logo-landsman" />
-        <!-- Set 2 — duplicate for seamless loop -->
-        <img src="logos/michelin_cropped.png" alt="Michelin"      class="logo-michelin dark-logo" />
-        <img src="logos/motorace logo.png" alt="Motorace Israel" class="dark-logo" />
-        <img src="logos/swift_cropped.png"  alt="Swift"            class="logo-swift" />
-        <img src="logos/BBQ.png"           alt="BBQ N More"      class="dark-logo" />
-        <img src="logos/columbia.png"      alt="Columbia"        class="logo-columbia" />
-        <img src="logos/landsman_cropped.png" alt="Landsman"     class="logo-landsman" />
+      <div class="film-card" data-category="viral" onclick="openModal('ziVMkr1RAJg')">
+        <img class="film-thumb" src="thumbnails/Viral travel.jpg" alt="Viral Travel" loading="lazy"/>
+        <div class="film-overlay"></div>
+        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="film-info">
+          <span class="film-tag">Viral Content</span>
+          <h3 class="film-title">The Passion Of Traveling</h3>
+          <p class="film-desc">Travel content</p>
+        </div>
       </div>
+
+      <div class="film-card" data-category="viral" onclick="openModal('5rKxFxnqDRs')">
+        <img class="film-thumb" src="thumbnails/mongolia-viral.jpg" alt="Mongolia Short" loading="lazy"/>
+        <div class="film-overlay"></div>
+        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="film-info">
+          <span class="film-tag">Viral Content</span>
+          <h3 class="film-title">A Glimpse from MONGOLIA</h3>
+          <p class="film-desc">Travel content</p>
+        </div>
+      </div>
+
+      <div class="film-card" data-category="viral" onclick="openModal('sEuzJMAd26U')">
+        <img class="film-thumb" src="thumbnails/Travel agency.jpg" alt="Travel Agency" loading="lazy"/>
+        <div class="film-overlay"></div>
+        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="film-info">
+          <span class="film-tag">Viral Content</span>
+          <h3 class="film-title">The Beauty Of KAZBEGI, Georgia</h3>
+          <p class="film-desc">A Video for a Travel Agency</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1238,43 +1306,6 @@
         </div>
         <p class="stat-label">Countries Filmed</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="about-card">
-
-      <!-- Photo LEFT -->
-      <div class="about-img-wrap">
-        <img src="profile.jpg" alt="Eliya Kapach" />
-      </div>
-
-      <!-- Text RIGHT -->
-      <div class="about-text">
-        <h3 class="about-heading">Who I am</h3>
-        <p class="about-intro">I'm Eliya — filmmaker, content creator, and visual storyteller.</p>
-        <p>I work with brands that want more than good-looking content —<br/>They want something that makes people feel and respond.</p>
-        <p>
-          My work is rooted in real experiences: travel, speed, silence, movement.
-          I translate those into stories that carry emotion, depth, and presence.
-          Every project is led by me, end-to-end, with full creative control.
-        </p>
-        <p class="highlight">The result?<br/>Films that don't just look impressive — they stay with people.</p>
-
-        <div class="skills-wrap">
-          <p class="skills-label">What I do</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Direction</span>
-            <span class="skill-tag">Cinematography</span>
-            <span class="skill-tag">Color Grading</span>
-            <span class="skill-tag">Editing</span>
-            <span class="skill-tag">Storytelling</span>
-            <span class="skill-tag">Sound Design</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -1352,6 +1383,9 @@
       video.addEventListener('canplay', showVideo);
       video.addEventListener('loadeddata', showVideo);
       if (video.readyState >= 3) showVideo();
+      video.play().catch(() => {
+        document.addEventListener('touchstart', () => video.play(), { once: true });
+      });
     }
 
     // Video modal
