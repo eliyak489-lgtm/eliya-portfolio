@@ -6,6 +6,7 @@ import LogoTicker from '../components/LogoTicker.astro';
 import FilmGrid from '../components/FilmGrid.astro';
 import CategoryLinks from '../components/CategoryLinks.astro';
 import Stats from '../components/Stats.astro';
+import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import InstagramPreview from '../components/InstagramPreview.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -24,6 +25,7 @@ const homepageProjects = projects.filter((p) => !p.placeholder);
   <FilmGrid items={homepageProjects} />
   <CategoryLinks />
   <Stats />
+  <Testimonials />
   <FAQ />
   <InstagramPreview />
   <ContactForm />

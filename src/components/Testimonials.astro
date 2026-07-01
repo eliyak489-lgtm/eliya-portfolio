@@ -1,0 +1,24 @@
+---
+// Homepage testimonials. Zero-JS static grid — swap placeholder copy in
+// data/testimonials.ts once real client quotes are in.
+import { testimonials } from '../data/testimonials.ts';
+---
+<section class="testimonials-section" id="testimonials">
+  <div class="films-header">
+    <div>
+      <h2 class="section-title">What Clients Say</h2>
+    </div>
+  </div>
+
+  <div class="testimonials-grid">
+    {testimonials.map((t) => (
+      <blockquote class="testimonial-card">
+        <p class="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
+        <footer class="testimonial-footer">
+          <span class="testimonial-name">{t.name}</span>
+          <span class="testimonial-role">{t.role}</span>
+        </footer>
+      </blockquote>
+    ))}
+  </div>
+</section>

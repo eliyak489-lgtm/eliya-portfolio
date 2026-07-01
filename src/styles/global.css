@@ -1090,6 +1090,62 @@
 
     .category-card:hover .category-card-link svg { transform: translateX(3px); }
 
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section {
+      padding: 80px 40px;
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      padding: 32px 26px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--dark3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(122,158,175,0.4);
+    }
+
+    .testimonial-quote {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(232,239,242,0.75);
+      margin-bottom: 22px;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .testimonial-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .testimonial-role {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--blue-light);
+    }
+
     /* ─── FAQ ─── */
     .faq-section {
       padding: 80px 40px;
@@ -1466,6 +1522,9 @@
 
       .category-links-section { padding: 56px 20px; }
       .category-grid { grid-template-columns: 1fr; }
+
+      .testimonials-section { padding: 56px 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
 
       .faq-section { padding: 56px 20px; }
       .faq-question { font-size: 14px; }
