@@ -748,44 +748,7 @@
     }
 
     /* ─── CONTACT ─── */
-    /* ─── CONTACT ─── */
-    .contact-section {
-      padding: 110px 64px 80px;
-      background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .contact-top {
-      max-width: 1100px;
-      margin: 0 auto 72px;
-    }
-
-    .contact-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      color: rgba(232,239,242,0.22);
-      margin-bottom: 28px;
-    }
-
-    .contact-section h2 {
-      font-size: clamp(2.6rem, 6.5vw, 6rem);
-      font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.025em;
-      color: var(--white);
-      margin-bottom: 48px;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* "Email me →" pill button */
+    /* "Email me →" pill button (also used by the contact-form submit button) */
     .contact-btn {
       display: inline-flex;
       align-items: center;
@@ -826,12 +789,16 @@
       border: 1px solid rgba(255,255,255,0.07);
     }
 
-    /* Bottom row: social icons + copyright */
-    .contact-bottom {
+    /* ─── FOOTER (site-wide, via BaseLayout) ─── */
+    .site-footer {
+      padding: 32px 40px;
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .site-footer-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding-top: 48px;
-      border-top: 1px solid rgba(255,255,255,0.06);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -964,10 +931,9 @@
       .logos-ticker-track img.logo-michelin { height: 24px; }
       .logos-ticker-track img.logo-columbia { height: 18px; }
 
-      /* Contact */
-      .contact-section { padding: 72px 20px; }
-
-      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+      /* Footer */
+      .site-footer { padding: 24px 20px; }
+      .site-footer-inner { flex-direction: column; gap: 8px; text-align: center; }
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1374,6 +1340,22 @@
 
     .form-status-success { color: var(--blue-light); }
     .form-status-error { color: #d98a8a; }
+
+    /* Subtle alternate-contact line under the form */
+    .contact-form-alt {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(232,239,242,0.4);
+    }
+
+    .contact-form-alt a {
+      color: var(--blue-light);
+      text-decoration: none;
+    }
+
+    .contact-form-alt a:hover { text-decoration: underline; }
 
     /* ─── CASE STUDY (/project/[slug]) ─── */
     .cs-hero {
