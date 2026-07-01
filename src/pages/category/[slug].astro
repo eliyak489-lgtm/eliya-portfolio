@@ -1,0 +1,38 @@
+---
+import { categories } from '../../data/categories.ts';
+import { projects } from '../../data/projects.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { slug: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const items = projects.filter((p) => p.category4 === category.slug);
+---
+<BaseLayout
+  title={`${category.title} — Eliya Kapach`}
+  description={category.blurb}
+>
+  <section class="page-hero">
+    <p class="section-label">Category</p>
+    <h1 class="page-hero-title">{category.title}</h1>
+    <p class="page-hero-sub">{category.blurb}</p>
+  </section>
+
+  <section class="films-section">
+    <div class="films-header">
+      <div>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <span class="films-count">{items.length} Projects</span>
+    </div>
+    <div class="films-grid">
+      {items.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

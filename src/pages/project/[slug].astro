@@ -1,0 +1,89 @@
+---
+import { projects } from '../../data/projects.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/casestudy/Gallery.astro';
+import BTS from '../../components/casestudy/BTS.astro';
+import Deliverables from '../../components/casestudy/Deliverables.astro';
+import RelatedProjects from '../../components/casestudy/RelatedProjects.astro';
+import { placeholders } from '../../data/placeholders.ts';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+<BaseLayout
+  title={`${project.title} — Eliya Kapach`}
+  description={project.description}
+>
+  <!-- HERO -->
+  <section class="cs-hero">
+    {project.thumbnail ? (
+      <img class="cs-hero-bg" src={project.thumbnail} alt="" />
+    ) : (
+      <div class="cs-hero-bg cs-hero-bg-placeholder"></div>
+    )}
+    <div class="cs-hero-overlay"></div>
+    <div class="cs-hero-content">
+      <span class="film-tag">{project.tag}</span>
+      <h1 class="cs-hero-title">{project.title}</h1>
+      {project.client && <p class="cs-hero-client">Client: {project.client}</p>}
+    </div>
+  </section>
+
+  <div class="cs-body">
+    <!-- OVERVIEW / CHALLENGE / CREATIVE DIRECTION / ROLE -->
+    <div class="cs-block">
+      <h3 class="cs-block-label">Overview</h3>
+      <p class="cs-block-text">{project.overview || placeholders.overview}</p>
+    </div>
+
+    <div class="cs-block">
+      <h3 class="cs-block-label">The Challenge</h3>
+      <p class="cs-block-text">{project.challenge || placeholders.challenge}</p>
+    </div>
+
+    <div class="cs-block">
+      <h3 class="cs-block-label">Creative Direction</h3>
+      <p class="cs-block-text">{project.creativeDirection || placeholders.creativeDirection}</p>
+    </div>
+
+    <div class="cs-block">
+      <h3 class="cs-block-label">My Role</h3>
+      <p class="cs-block-text">{project.role || placeholders.role}</p>
+    </div>
+
+    <!-- FILM -->
+    <div class="cs-block">
+      <h3 class="cs-block-label">Film</h3>
+      {project.youtubeId ? (
+        <div class="cs-video-wrap">
+          <iframe
+            src={`https://www.youtube.com/embed/${project.youtubeId}?rel=0&modestbranding=1`}
+            title={project.title}
+            frameborder="0"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+      ) : (
+        <p class="cs-placeholder">{placeholders.video}</p>
+      )}
+    </div>
+
+    <Gallery images={project.gallery} alt={project.title} />
+    <BTS images={project.bts} alt={project.title} />
+    <Deliverables items={project.deliverables} />
+    <RelatedProjects currentSlug={project.slug} category4={project.category4} />
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <p class="cs-cta-text">Have a project like this in mind?</p>
+      <a href="/#contact" class="hero-btn primary">Start a Project</a>
+    </div>
+  </div>
+</BaseLayout>

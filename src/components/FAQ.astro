@@ -1,0 +1,25 @@
+---
+// Homepage FAQ. Zero-JS accordion via native <details>; edit copy in data/faq.ts.
+import { faq } from '../data/faq.ts';
+---
+<section class="faq-section" id="faq">
+  <div class="films-header">
+    <div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+  </div>
+
+  <div class="faq-list">
+    {faq.map((item) => (
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>{item.question}</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+          </svg>
+        </summary>
+        <p class="faq-answer">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>

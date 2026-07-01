@@ -1,0 +1,27 @@
+---
+// Card used on /work and /category/[slug]. Reuses the .film-card visual
+// language from the homepage grid, but links to the project's case-study
+// page instead of opening the video modal. Renders a "Coming Soon" tile
+// when the project has no thumbnail yet (see projects.ts `placeholder`).
+import type { Project } from '../data/projects.ts';
+import { placeholders } from '../data/placeholders.ts';
+
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<a class="film-card" href={`/project/${project.slug}/`} data-category={project.category4}>
+  {project.thumbnail ? (
+    <img class="film-thumb" src={project.thumbnail} alt={project.alt || project.title} loading="lazy" />
+  ) : (
+    <div class="film-thumb film-thumb-placeholder">{placeholders.cardComingSoon}</div>
+  )}
+  <div class="film-overlay"></div>
+  <div class="play-btn">
+    <div class="play-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  </div>
+  <div class="film-info">
+    <span class="film-tag">{project.tag}</span>
+    <h3 class="film-title">{project.title}</h3>
+    <p class="film-desc">{project.description}</p>
+  </div>
+</a>

@@ -1,0 +1,19 @@
+---
+import { projects } from '../../data/projects.ts';
+import ProjectCard from '../ProjectCard.astro';
+
+interface Props { currentSlug: string; category4: string; }
+const { currentSlug, category4 } = Astro.props;
+
+const related = projects
+  .filter((p) => p.category4 === category4 && p.slug !== currentSlug)
+  .slice(0, 3);
+---
+{related.length > 0 && (
+  <div class="cs-block cs-related">
+    <h3 class="cs-block-label">Related Projects</h3>
+    <div class="films-grid cs-related-grid">
+      {related.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </div>
+)}

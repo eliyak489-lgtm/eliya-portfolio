@@ -1,0 +1,33 @@
+---
+// Homepage Instagram strip. Deliberately not an embedded IG API widget (those
+// need app review + tokens and break easily) — tiles just link out to the
+// profile. Add real post thumbnails in data/instagram.ts when ready.
+import { instagramTiles } from '../data/instagram.ts';
+import { site } from '../data/site.ts';
+---
+<section class="instagram-section" id="instagram">
+  <div class="films-header">
+    <div>
+      <h2 class="section-title">Follow Along</h2>
+    </div>
+    <a href={site.instagramUrl} target="_blank" rel="noopener" class="hero-btn instagram-follow-btn">
+      {site.instagramHandle}
+    </a>
+  </div>
+
+  <div class="instagram-scroll">
+    {instagramTiles.map((tile) => (
+      <a href={site.instagramUrl} target="_blank" rel="noopener" class="instagram-tile" aria-label={tile.alt}>
+        {tile.thumbnail ? (
+          <img src={tile.thumbnail} alt={tile.alt} loading="lazy" />
+        ) : (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        )}
+      </a>
+    ))}
+  </div>
+</section>

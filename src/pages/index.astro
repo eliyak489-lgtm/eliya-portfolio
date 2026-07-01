@@ -4,14 +4,29 @@ import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import LogoTicker from '../components/LogoTicker.astro';
 import FilmGrid from '../components/FilmGrid.astro';
+import CategoryLinks from '../components/CategoryLinks.astro';
 import Stats from '../components/Stats.astro';
+import FAQ from '../components/FAQ.astro';
+import InstagramPreview from '../components/InstagramPreview.astro';
+import ContactForm from '../components/ContactForm.astro';
 import Contact from '../components/Contact.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { projects } from '../data/projects.ts';
+
+// Homepage "Selected Work" only shows real, existing content — placeholder
+// (coming soon) projects appear on /work and their category page instead.
+const homepageProjects = projects.filter((p) => !p.placeholder);
 ---
 <BaseLayout>
   <Hero />
   <About />
   <LogoTicker />
-  <FilmGrid />
+  <FilmGrid items={homepageProjects} />
+  <CategoryLinks />
   <Stats />
+  <FAQ />
+  <InstagramPreview />
+  <ContactForm />
   <Contact />
+  <FinalCTA />
 </BaseLayout>

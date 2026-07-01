@@ -1,0 +1,60 @@
+---
+// Full projects index grid with category tabs (used on /work). Filtering
+// logic mirrors FilmGrid's, scoped to the four Category4 values instead of
+// the legacy viral/travel/commercial tabs.
+import { projects } from '../data/projects.ts';
+import { categories } from '../data/categories.ts';
+import ProjectCard from './ProjectCard.astro';
+---
+<section class="films-section">
+  <div class="films-header">
+    <div>
+      <h2 class="section-title">All Projects</h2>
+    </div>
+    <span class="films-count">{projects.length} Projects</span>
+  </div>
+
+  <div class="films-tabs">
+    <button class="tab-btn active" data-filter="all">All</button>
+    {categories.map((cat) => (
+      <button class="tab-btn" data-filter={cat.slug}>{cat.title}</button>
+    ))}
+  </div>
+
+  <div class="films-grid" id="projectsGrid">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>
+
+<script>
+  const grid = document.getElementById('projectsGrid');
+  const tabs = grid?.closest('.films-section')?.querySelector<HTMLElement>('.films-tabs');
+
+  if (grid && tabs) {
+    tabs.addEventListener('click', (e) => {
+      const target = e.target as Element | null;
+      const btn = target?.closest<HTMLElement>('.tab-btn');
+      if (!btn) return;
+      const category = btn.dataset.filter;
+
+      tabs.querySelectorAll('.tab-btn').forEach((t) => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      grid.querySelectorAll<HTMLElement>('.film-card').forEach((card) => {
+        const show = category === 'all' || card.dataset.category === category;
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+          card.style.display = show ? '' : 'none';
+          if (show) {
+            requestAnimationFrame(() => {
+              card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+              card.style.opacity = '1';
+              card.style.transform = '';
+            });
+          }
+        }, 80);
+      });
+    });
+  }
+</script>
