@@ -34,3 +34,50 @@ Think: A24, Apple, Patagonia, Arc'teryx, Land Rover, The North Face, DJI, Visit 
 ## Keywords
 
 cinematic, premium, immersive, storytelling, emotion, travel, adventure, nature, luxury, human, craft
+
+## Ideal Clients
+
+- Hotels
+- Luxury Resorts
+- Outdoor Brands
+- Tourism Boards
+- Adventure Companies
+- Commercial Brands
+- Agencies
+- Documentary Productions
+
+### Client Goals
+
+- Increase bookings
+- Increase brand perception
+- Tell better stories
+- Launch products
+- Build emotional connection
+
+### Why They Hire Eliya
+
+- Authentic storytelling
+- Premium visuals
+- Professional execution
+- Creative direction
+- Attention to detail
+
+## Services
+
+- Creative Direction
+- Concept Development
+- Pre-Production
+- Filmmaking
+- Drone Cinematography
+- Photography
+- Editing
+- Color Grading
+- Sound Design
+
+### Project Types
+
+- Commercial Campaigns
+- Travel Films
+- Brand Films
+- Hospitality Films
+- Outdoor Brand Films

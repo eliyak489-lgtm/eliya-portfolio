@@ -1,4 +1,8 @@
-# Development Rules
+# Instructions
+
+How to approach changes to this codebase.
+
+## Development Rules
 
 Before making any major changes:
 
@@ -23,3 +27,7 @@ The website should always feel cinematic, premium, minimal, and emotionally driv
 5. Then begin coding.
 
 Never rewrite large sections of the codebase unless necessary. Preserve the existing design language while improving it.
+
+## UX Principles
+
+Navigation should always feel effortless. Every important page should lead naturally to "Start a Project." Remove unnecessary friction. The website should encourage exploration.
