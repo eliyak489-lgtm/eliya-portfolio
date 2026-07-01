@@ -1,0 +1,51 @@
+---
+// Animated stat counters (count up when scrolled into view).
+---
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">
+        <span class="count" data-target="3">0</span><span class="stat-suffix">+</span>
+      </div>
+      <p class="stat-label">Years of Experience</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">
+        <span class="count" data-target="45">0</span><span class="stat-suffix">+</span>
+      </div>
+      <p class="stat-label">Projects & Clients</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">
+        <span class="count" data-target="15">0</span>
+      </div>
+      <p class="stat-label">Countries Filmed</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const counters = document.querySelectorAll<HTMLElement>('.count');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target as HTMLElement;
+      if (entry.isIntersecting && !el.dataset.done) {
+        el.dataset.done = 'true';
+        const target = +(el.dataset.target || '0');
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = String(Math.floor(current));
+        }, 16);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach((c) => observer.observe(c));
+</script>

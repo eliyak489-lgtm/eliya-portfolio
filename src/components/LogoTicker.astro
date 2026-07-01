@@ -1,0 +1,41 @@
+---
+// Infinite client-logo ticker (feature #2). Renders two identical sets for a
+// seamless loop; data comes from src/data/logos.ts.
+import { logos } from '../data/logos.ts';
+const sets = [0, 1]; // duplicate set for seamless wrap
+---
+<section class="logos-section">
+  <p class="logos-label">Brands I've worked with</p>
+  <div class="logos-ticker-wrap">
+    <div class="logos-ticker-track">
+      {sets.map(() => logos.map((logo) => (
+        <img src={logo.src} alt={logo.alt} class={logo.class} />
+      )))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Centered + seamless loop: measure one set, animate exactly one set width.
+  function initLogoTicker() {
+    const track = document.querySelector<HTMLElement>('.logos-ticker-track');
+    const wrap = document.querySelector<HTMLElement>('.logos-ticker-wrap');
+    if (!track || !wrap) return;
+
+    const oneSet = track.scrollWidth / 2;
+    const wrapW = wrap.offsetWidth;
+    const startX = Math.max(0, (wrapW - oneSet) / 2);
+    const endX = startX - oneSet;
+
+    const styleTag = document.createElement('style');
+    styleTag.textContent = `@keyframes logoTickerCentered {
+      from { transform: translateX(${startX}px); }
+      to   { transform: translateX(${endX}px); }
+    }`;
+    document.head.appendChild(styleTag);
+
+    track.style.animation = 'logoTickerCentered 28s linear infinite';
+  }
+
+  window.addEventListener('load', initLogoTicker);
+</script>

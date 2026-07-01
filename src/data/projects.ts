@@ -1,0 +1,107 @@
+// Single source of truth for all films/projects.
+// Feeds: homepage Selected Work grid, /work index, category pages, and
+// individual /project/[slug] case studies.
+//
+// Phase 0 keeps the original tab taxonomy (viral | travel | commercial) so the
+// homepage renders identically to the current live site. Phase 2 introduces the
+// four marketing categories (hotels-resorts | outdoor-brands | commercials |
+// travel-films) via the optional `category4` field + categories.ts.
+
+export type LegacyCategory = 'viral' | 'travel' | 'commercial';
+export type Category4 =
+  | 'hotels-resorts'
+  | 'outdoor-brands'
+  | 'commercials'
+  | 'travel-films';
+
+export interface Project {
+  slug: string;
+  title: string;
+  category: LegacyCategory;      // drives the current homepage tabs
+  tag: string;                   // small label chip on the card
+  description: string;
+  youtubeId: string;
+  thumbnail: string;             // path under /public
+  alt: string;
+  featured?: boolean;            // reserved for Phase 3 curated homepage grid
+
+  // ── Case-study fields (Phase 2, optional; placeholders when absent) ──
+  category4?: Category4;
+  client?: string;
+  overview?: string;
+  challenge?: string;
+  creativeDirection?: string;
+  role?: string;
+  gallery?: string[];
+  bts?: string[];
+  deliverables?: string[];
+}
+
+export const projects: Project[] = [
+  // ── Short Travel Films ──
+  { slug: 'the-big-trip', title: 'The Big Trip', category: 'travel', tag: 'Travel Film',
+    description: 'A Short Film', youtubeId: 'vQZNnYF7PzM',
+    thumbnail: '/thumbnails/The Big Trip.jpg', alt: 'The Big Trip' },
+
+  { slug: 'extreme-winter-georgia', title: 'EXTREME Winter Journey with Motorace.', category: 'travel', tag: 'Travel Film',
+    description: 'A Short Travel film for a Travel Agency', youtubeId: 'PR7lMcs9gxY',
+    thumbnail: '/thumbnails/Georgia Short-film.jpeg', alt: 'Georgia' },
+
+  { slug: 'where-silence-speaks-mongolia', title: '"Where Silence Speaks"', category: 'travel', tag: 'Travel Film',
+    description: 'A Cinematic Travel Film', youtubeId: '7FkayPsf1UU',
+    thumbnail: '/thumbnails/Mongolia Short-film.jpeg', alt: 'Mongolia' },
+
+  { slug: 'europe-motorace', title: '5 Days Journey across EUROPE', category: 'travel', tag: 'Travel Film',
+    description: 'A Short Travel film for a Travel Agency', youtubeId: '2qDpO2YTKBc',
+    thumbnail: '/thumbnails/Motorace.jpeg', alt: 'Motorace' },
+
+  { slug: 'hakuba-japan', title: 'HAKUBA | JAPAN', category: 'travel', tag: 'Travel Film',
+    description: 'A Unique Snowboard Experience', youtubeId: 'lVagyUuHFx8',
+    thumbnail: '/thumbnails/Japan Snowboard update.jpg', alt: 'Japan Snowboard' },
+
+  // ── Commercials ──
+  { slug: 'skideal-1', title: 'SKIDEAL', category: 'commercial', tag: 'Commercial',
+    description: 'Travel Agency Content', youtubeId: '9NpmeWyhrGI',
+    thumbnail: '/thumbnails/Skideal1.jpg', alt: 'Skideal' },
+
+  { slug: 'skideal-2', title: 'SKIDEAL', category: 'commercial', tag: 'Commercial',
+    description: 'Travel Agency Content', youtubeId: 'vmwXxRr4lbM',
+    thumbnail: '/thumbnails/Skideal2.jpg', alt: 'Skideal' },
+
+  { slug: 'columbia-collection', title: 'COLUMBIA Collection content.', category: 'commercial', tag: 'Commercial',
+    description: 'Content creation', youtubeId: 'd3XDuQyPynU',
+    thumbnail: '/thumbnails/columbia-polo.jpg', alt: 'Columbia Polo' },
+
+  { slug: 'columbia-travel', title: 'COLUMBIA Travel Collection', category: 'commercial', tag: 'Commercial',
+    description: 'Content creation', youtubeId: 'E0hv_Tgnp1Q',
+    thumbnail: '/thumbnails/Columbia Horizontal.jpeg', alt: 'Columbia' },
+
+  { slug: 'swift-optics', title: 'SWIFT OPTICS', category: 'commercial', tag: 'Commercial',
+    description: 'An E-Commerce Commercial', youtubeId: 'xrxgmFpYzoQ',
+    thumbnail: '/thumbnails/swift44.jpg', alt: 'Swift' },
+
+  { slug: 'landsman', title: 'Landsman', category: 'commercial', tag: 'Commercial',
+    description: 'Real Estate Aftermovie', youtubeId: 'mswaWP3gH9o',
+    thumbnail: '/thumbnails/Landsman.jpeg', alt: 'Aftermovie' },
+
+  { slug: 'bbq-more-1', title: 'BBQ & More', category: 'commercial', tag: 'Commercial',
+    description: 'Brand Film Vol. 1', youtubeId: 'bTVyNVup_-4',
+    thumbnail: '/thumbnails/BBQ & More 1.jpeg', alt: 'BBQ & More' },
+
+  { slug: 'bbq-more-2', title: 'BBQ & More', category: 'commercial', tag: 'Commercial',
+    description: 'Brand Film Vol. 2', youtubeId: '9hsPFhGGqoE',
+    thumbnail: '/thumbnails/BBQ & More 2.jpeg', alt: 'BBQ & More' },
+
+  // ── Viral Content ──
+  { slug: 'passion-of-traveling', title: 'The Passion Of Traveling', category: 'viral', tag: 'Viral Content',
+    description: 'Travel content', youtubeId: 'ziVMkr1RAJg',
+    thumbnail: '/thumbnails/Viral travel.jpg', alt: 'Viral Travel' },
+
+  { slug: 'glimpse-mongolia', title: 'A Glimpse from MONGOLIA', category: 'viral', tag: 'Viral Content',
+    description: 'Travel content', youtubeId: '5rKxFxnqDRs',
+    thumbnail: '/thumbnails/mongolia-viral.jpg', alt: 'Mongolia Short' },
+
+  { slug: 'beauty-of-kazbegi', title: 'The Beauty Of KAZBEGI, Georgia', category: 'viral', tag: 'Viral Content',
+    description: 'A Video for a Travel Agency', youtubeId: 'sEuzJMAd26U',
+    thumbnail: '/thumbnails/Travel agency.jpg', alt: 'Travel Agency' },
+];

@@ -1,0 +1,22 @@
+---
+// Fixed top nav. Links accept an optional `base` so pages outside the homepage
+// (e.g. /work) can point back to homepage anchors with an absolute path.
+const { base = '' } = Astro.props;
+---
+<nav id="nav">
+  <a href={base ? `${base}` : '/'} class="nav-logo">EK</a>
+  <ul class="nav-links">
+    <li><a href={`${base}/#films`}>Work</a></li>
+    <li><a href={`${base}/#about`}>About</a></li>
+    <li><a href={`${base}/#contact`}>Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  const nav = document.getElementById('nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

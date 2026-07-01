@@ -1,0 +1,41 @@
+---
+// Full-width hero with looping reel background.
+---
+<section class="hero">
+  <div class="hero-bg"></div>
+  <video
+    class="hero-video"
+    id="heroVideo"
+    autoplay muted loop playsinline
+    preload="auto"
+  >
+    <source src="/HERO-REELcomp.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-fade"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Filmmaker &nbsp;·&nbsp; Content Creator</div>
+    <h1>Eliya Kapach</h1>
+    <p class="hero-available"><span>[</span> Available worldwide <span>]</span></p>
+    <div class="hero-buttons">
+      <a href="#films" class="hero-btn primary">See Work</a>
+      <a href="#contact" class="hero-btn">Let's Create</a>
+    </div>
+  </div>
+
+  <div class="hero-border"></div>
+</section>
+
+<script>
+  const video = document.getElementById('heroVideo') as HTMLVideoElement | null;
+  if (video) {
+    const showVideo = () => video.classList.add('loaded');
+    video.addEventListener('canplay', showVideo);
+    video.addEventListener('loadeddata', showVideo);
+    if (video.readyState >= 3) showVideo();
+    video.play().catch(() => {
+      document.addEventListener('touchstart', () => video.play(), { once: true });
+    });
+  }
+</script>

@@ -1,0 +1,18 @@
+---
+import type { Project } from '../data/projects.ts';
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<div class="film-card" data-category={project.category} data-video-id={project.youtubeId}
+     role="button" tabindex="0" aria-label={`Play ${project.title}`}>
+  <img class="film-thumb" src={project.thumbnail} alt={project.alt} loading="lazy" />
+  <div class="film-overlay"></div>
+  <div class="play-btn">
+    <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+  </div>
+  <div class="film-info">
+    <span class="film-tag">{project.tag}</span>
+    <h3 class="film-title">{project.title}</h3>
+    <p class="film-desc">{project.description}</p>
+  </div>
+</div>
