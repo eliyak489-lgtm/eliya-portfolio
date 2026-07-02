@@ -6,7 +6,10 @@ import LogoTicker from '../components/LogoTicker.astro';
 import FilmGrid from '../components/FilmGrid.astro';
 import CategoryLinks from '../components/CategoryLinks.astro';
 import Stats from '../components/Stats.astro';
-import Testimonials from '../components/Testimonials.astro';
+// Testimonials temporarily disabled — data/testimonials.ts only has
+// placeholder quotes. Re-enable this import + <Testimonials /> below once
+// real client testimonials are added there.
+// import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import InstagramPreview from '../components/InstagramPreview.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -24,7 +27,7 @@ const homepageProjects = projects.filter((p) => !p.placeholder);
   <CategoryLinks />
   <Stats />
   <About />
-  <Testimonials />
+  {/* <Testimonials /> — see disabled import above */}
   <FAQ />
   <InstagramPreview />
   <ContactForm />
