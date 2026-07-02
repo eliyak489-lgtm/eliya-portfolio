@@ -990,8 +990,25 @@
       /* Films */
       .films-section { padding: 60px 20px; }
       .films-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .tab-btn { padding: 10px 14px; font-size: 10px; }
       .film-info { padding: 18px 20px; }
+
+      /* Tabs — horizontal scroll strip instead of wrapping/overflowing */
+      .films-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .films-tabs::-webkit-scrollbar { display: none; }
+      .tab-btn {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
+        padding: 10px 14px;
+        font-size: 10px;
+      }
 
       /* About */
       .about-section { padding: 60px 20px; }
