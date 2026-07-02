@@ -67,6 +67,81 @@
 
     .nav-links a:hover { color: var(--white); }
 
+    /* Hamburger toggle — hidden on desktop, shown only in the mobile query below */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .nav-toggle-line {
+      width: 20px;
+      height: 1.5px;
+      background: var(--white);
+      transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
+    .nav-toggle.open .nav-toggle-line:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open .nav-toggle-line:nth-child(2) { opacity: 0; }
+    .nav-toggle.open .nav-toggle-line:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Full-screen mobile menu overlay — sits behind the fixed nav (z-index 100)
+       so the toggle button stays visible/clickable as it morphs into an X. */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(12,15,18,0.97);
+      backdrop-filter: blur(20px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .mobile-menu-links a {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-menu-links a:hover,
+    .mobile-menu-links a:active {
+      opacity: 1;
+      color: var(--blue-light);
+    }
+
     /* ─── HERO ─── */
     .hero {
       height: 70vh;
@@ -898,10 +973,12 @@
     @media (max-width: 768px) {
       nav { padding: 18px 20px; }
       .nav-links { display: none; }
+      .nav-toggle { display: flex; }
 
       /* Hero */
       .hero { padding: 0 20px 60px; min-height: 100svh; justify-content: center; }
       .hero-video { display: none; }
+      .hero-bg { background-image: url('/hero-poster.jpg'); }
       .hero-content { flex-direction: column; align-items: center; text-align: center; gap: 16px; padding-bottom: 0; }
       .hero h1 { font-size: clamp(1.2rem, 6vw, 2rem); white-space: nowrap; letter-spacing: 0.04em; }
       .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; padding: 6px 14px; white-space: nowrap; }

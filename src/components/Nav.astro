@@ -1,6 +1,8 @@
 ---
 // Fixed top nav. Links accept an optional `base` so pages outside the homepage
 // (e.g. /work) can point back to homepage anchors with an absolute path.
+// On mobile, .nav-links is hidden (see global.css) and this hamburger +
+// full-screen overlay takes over as the only nav affordance.
 const { base = '' } = Astro.props;
 ---
 <nav id="nav">
@@ -10,7 +12,28 @@ const { base = '' } = Astro.props;
     <li><a href={`${base}/#about`}>About</a></li>
     <li><a href={`${base}/#contact`}>Contact</a></li>
   </ul>
+
+  <button
+    type="button"
+    class="nav-toggle"
+    id="navToggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+  >
+    <span class="nav-toggle-line"></span>
+    <span class="nav-toggle-line"></span>
+    <span class="nav-toggle-line"></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href={`${base}/#films`}>Work</a></li>
+    <li><a href={`${base}/#about`}>About</a></li>
+    <li><a href={`${base}/#contact`}>Contact</a></li>
+  </ul>
+</div>
 
 <script>
   const nav = document.getElementById('nav');
@@ -19,4 +42,39 @@ const { base = '' } = Astro.props;
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  const toggle = document.getElementById('navToggle') as HTMLButtonElement | null;
+  const menu = document.getElementById('mobileMenu');
+
+  function closeMenu() {
+    if (!toggle || !menu) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!toggle || !menu) return;
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  toggle?.addEventListener('click', () => {
+    if (menu?.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+
+  menu?.addEventListener('click', (e) => {
+    const target = e.target as Element | null;
+    if (target?.closest('a') || target === menu) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
 </script>

@@ -1,6 +1,9 @@
 ---
-// Full-width hero with looping reel background.
+// Full-width hero with looping reel background. On mobile the video is
+// swapped for a static poster (see .hero-bg in global.css) — this preload
+// hint is scoped to mobile widths so desktop never fetches the image.
 ---
+<link rel="preload" as="image" href="/hero-poster.jpg" media="(max-width: 768px)" />
 <section class="hero">
   <div class="hero-bg"></div>
   <video
