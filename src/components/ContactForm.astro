@@ -1,7 +1,6 @@
 ---
 // Inquiry form — posts directly to Web3Forms (api.web3forms.com), no backend
-// needed. Replace `site.web3formsAccessKey` in data/site.ts with a real key
-// from https://web3forms.com once generated.
+// needed. Access key lives in `site.web3formsAccessKey` (data/site.ts).
 import { categories } from '../data/categories.ts';
 import { site } from '../data/site.ts';
 ---
@@ -22,18 +21,18 @@ import { site } from '../data/site.ts';
       <div class="form-row">
         <label class="form-field">
           <span class="form-label">Name</span>
-          <input type="text" name="name" required />
+          <input type="text" name="name" autocomplete="name" required />
         </label>
         <label class="form-field">
           <span class="form-label">Email</span>
-          <input type="email" name="email" required />
+          <input type="email" name="email" autocomplete="email" required />
         </label>
       </div>
 
       <div class="form-row">
         <label class="form-field">
           <span class="form-label">Company / Brand</span>
-          <input type="text" name="company" />
+          <input type="text" name="company" autocomplete="organization" />
         </label>
         <label class="form-field">
           <span class="form-label">Project Type</span>
@@ -83,6 +82,7 @@ import { site } from '../data/site.ts';
     const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     const originalLabel = submitLabel.textContent;
     if (submitBtn) submitBtn.disabled = true;
+    form.setAttribute('aria-busy', 'true');
     submitLabel.textContent = 'Sending...';
     status.textContent = '';
     status.className = 'form-status';
@@ -107,6 +107,7 @@ import { site } from '../data/site.ts';
       status.classList.add('form-status-error');
     } finally {
       if (submitBtn) submitBtn.disabled = false;
+      form.removeAttribute('aria-busy');
       submitLabel.textContent = originalLabel;
     }
   });
