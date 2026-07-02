@@ -1,5 +1,6 @@
 ---
 import { projects } from '../../data/projects.ts';
+import { categories } from '../../data/categories.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/casestudy/Gallery.astro';
 import BTS from '../../components/casestudy/BTS.astro';
@@ -15,6 +16,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const category = categories.find((c) => c.slug === project.category4);
 ---
 <BaseLayout
   title={`${project.title} — Eliya Kapach`}
@@ -28,6 +30,9 @@ const { project } = Astro.props;
       <div class="cs-hero-bg cs-hero-bg-placeholder"></div>
     )}
     <div class="cs-hero-overlay"></div>
+    {category && (
+      <a href={`/category/${category.slug}/`} class="cs-back-link">← Back to {category.title}</a>
+    )}
     <div class="cs-hero-content">
       <span class="film-tag">{project.tag}</span>
       <h1 class="cs-hero-title">{project.title}</h1>
