@@ -49,6 +49,26 @@ export const projects: Project[] = [
     thumbnail: '/thumbnails/ishwi-omakase.png', alt: 'Ishwi Omakase', featured: true,
     client: 'Ishwi Omakase / Mizata by Antiresort', role: 'Director, Cinematographer, Editor, Colorist.' },
 
+  // Reserved slot — upcoming project (referred to internally as "OAKS").
+  // Replace once the real project details are provided; remove `placeholder: true`.
+  { slug: 'luxury-placeholder-2', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
+    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
+
+  // The Westin Cozumel — Cozumel, Mexico, 2026 (no `location`/`year` fields
+  // exist in the schema yet, noting here so it isn't lost).
+  { slug: 'the-westin-cozumel', title: 'The Westin Cozumel', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'A cinematic film capturing the rooftop experience at The Westin Cozumel, where architecture, ocean views, and atmosphere come together.',
+    youtubeId: 'UOiiDv3qbjs', thumbnail: '/thumbnails/the-westin.jpg', alt: 'The Westin Cozumel', featured: true,
+    client: 'The Westin Cozumel', role: 'Director, Cinematographer, Editor, Colorist.' },
+
+  { slug: 'skideal-1', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Travel Agency Content', youtubeId: '9NpmeWyhrGI',
+    thumbnail: '/thumbnails/Skideal1.jpg', alt: 'Skideal' },
+
+  { slug: 'skideal-2', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Travel Agency Content', youtubeId: 'vmwXxRr4lbM',
+    thumbnail: '/thumbnails/Skideal2.jpg', alt: 'Skideal' },
+
   // ── Short Travel Films ──
   { slug: 'the-big-trip', title: 'The Big Trip', category: 'travel', category4: 'travel-films', tag: 'Travel Film',
     description: 'A Short Film', youtubeId: 'vQZNnYF7PzM',
@@ -71,14 +91,6 @@ export const projects: Project[] = [
     thumbnail: '/thumbnails/Japan Snowboard update.jpg', alt: 'Japan Snowboard' },
 
   // ── Commercials ──
-  { slug: 'skideal-1', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
-    description: 'Travel Agency Content', youtubeId: '9NpmeWyhrGI',
-    thumbnail: '/thumbnails/Skideal1.jpg', alt: 'Skideal' },
-
-  { slug: 'skideal-2', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
-    description: 'Travel Agency Content', youtubeId: 'vmwXxRr4lbM',
-    thumbnail: '/thumbnails/Skideal2.jpg', alt: 'Skideal' },
-
   { slug: 'columbia-collection', title: 'COLUMBIA Collection content.', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'Content creation', youtubeId: 'd3XDuQyPynU',
     thumbnail: '/thumbnails/columbia-polo.jpg', alt: 'Columbia Polo' },
@@ -119,10 +131,6 @@ export const projects: Project[] = [
   // ── Hotels & Resorts — placeholders, awaiting the remaining "Luxury" videos ──
   // Replace each entry below (title, youtubeId, thumbnail, case-study fields)
   // once the real project details are provided; remove `placeholder: true`.
-  { slug: 'luxury-placeholder-2', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
-  { slug: 'luxury-placeholder-3', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
   { slug: 'luxury-placeholder-4', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
     tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
   { slug: 'luxury-placeholder-5', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
