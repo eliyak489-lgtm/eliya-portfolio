@@ -49,10 +49,12 @@ export const projects: Project[] = [
     thumbnail: '/thumbnails/ishwi-omakase.png', alt: 'Ishwi Omakase', featured: true,
     client: 'Ishwi Omakase / Mizata by Antiresort', role: 'Director, Cinematographer, Editor, Colorist.' },
 
-  // Reserved slot — upcoming project (referred to internally as "OAKS").
-  // Replace once the real project details are provided; remove `placeholder: true`.
-  { slug: 'luxury-placeholder-2', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
+  // Morning Ritual — El Salvador, 2026 (no `location`/`year` fields exist in
+  // the schema yet, noting here so it isn't lost).
+  { slug: 'morning-ritual', title: 'Morning Ritual', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'A cinematic portrait of a quiet morning at Mizata by Antiresort, where wellness, nature, and slow living come together.',
+    youtubeId: 'JD0FFmJeDGM', thumbnail: '/thumbnails/Morning-Ritual.png', alt: 'Morning Ritual', featured: true,
+    client: 'Mizata by Antiresort', role: 'Director, Cinematographer, Editor, Colorist.' },
 
   // The Westin Cozumel — Cozumel, Mexico, 2026 (no `location`/`year` fields
   // exist in the schema yet, noting here so it isn't lost).
