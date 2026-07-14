@@ -41,6 +41,14 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ── Hotels & Resorts ──
+  // Ishwi Omakase — Mizata, El Salvador, 2026 (no `location`/`year` fields
+  // exist in the schema yet, noting here so it isn't lost).
+  { slug: 'ishwi-omakase', title: 'Ishwi Omakase', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'A cinematic portrait of Ishwi Omakase at Mizata by Antiresort, El Salvador.', youtubeId: 'nlnkIxBwEZc',
+    thumbnail: '/thumbnails/ishwi-omakase.png', alt: 'Ishwi Omakase', featured: true,
+    client: 'Ishwi Omakase / Mizata by Antiresort', role: 'Director, Cinematographer, Editor, Colorist.' },
+
   // ── Short Travel Films ──
   { slug: 'the-big-trip', title: 'The Big Trip', category: 'travel', category4: 'travel-films', tag: 'Travel Film',
     description: 'A Short Film', youtubeId: 'vQZNnYF7PzM',
@@ -108,11 +116,9 @@ export const projects: Project[] = [
     description: 'A Video for a Travel Agency', youtubeId: 'sEuzJMAd26U',
     thumbnail: '/thumbnails/Travel agency.jpg', alt: 'Travel Agency' },
 
-  // ── Hotels & Resorts — placeholders, awaiting the 5 "Luxury" videos ──
+  // ── Hotels & Resorts — placeholders, awaiting the remaining "Luxury" videos ──
   // Replace each entry below (title, youtubeId, thumbnail, case-study fields)
   // once the real project details are provided; remove `placeholder: true`.
-  { slug: 'luxury-placeholder-1', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
   { slug: 'luxury-placeholder-2', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
     tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
   { slug: 'luxury-placeholder-3', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
