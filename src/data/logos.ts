@@ -16,4 +16,7 @@ export const logos: Logo[] = [
   { src: '/logos/columbia.png',          alt: 'Columbia',        class: 'logo-columbia' },
   { src: '/logos/landsman_cropped.png',  alt: 'Landsman',        class: 'logo-landsman' },
   { src: '/logos/SKIDEAL.png',           alt: 'Skideal',         class: 'logo-skideal' },
+  { src: '/logos/ishwi_cropped.png',     alt: 'Ishwi Omakase',   class: 'logo-ishwi' },
+  { src: '/logos/mizata_cropped.png',    alt: 'Mizata by Antiresort', class: 'logo-mizata' },
+  { src: '/logos/oaks.png',              alt: 'OAKS Hotel',      class: 'logo-oaks' },
 ];

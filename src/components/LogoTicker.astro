@@ -5,12 +5,14 @@ import { logos } from '../data/logos.ts';
 const sets = [0, 1]; // duplicate set for seamless wrap
 ---
 <section class="logos-section">
-  <p class="logos-label">Brands I've worked with</p>
-  <div class="logos-ticker-wrap">
-    <div class="logos-ticker-track">
-      {sets.map(() => logos.map((logo) => (
-        <img src={logo.src} alt={logo.alt} class={logo.class} />
-      )))}
+  <div class="logos-container">
+    <p class="logos-label">Brands I've worked with</p>
+    <div class="logos-ticker-wrap">
+      <div class="logos-ticker-track">
+        {sets.map(() => logos.map((logo) => (
+          <img src={logo.src} alt={logo.alt} class={logo.class} />
+        )))}
+      </div>
     </div>
   </div>
 </section>
@@ -34,7 +36,7 @@ const sets = [0, 1]; // duplicate set for seamless wrap
     }`;
     document.head.appendChild(styleTag);
 
-    track.style.animation = 'logoTickerCentered 28s linear infinite';
+    track.style.animation = 'logoTickerCentered 34s linear infinite';
   }
 
   window.addEventListener('load', initLogoTicker);

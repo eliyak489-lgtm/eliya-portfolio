@@ -614,11 +614,16 @@
 
     /* ─── LOGOS TICKER ─── */
     .logos-section {
-      padding: 48px 0;
+      padding: 20px 40px 36px;
       background: var(--dark2);
       border-top: 1px solid rgba(255,255,255,0.04);
       border-bottom: 1px solid rgba(255,255,255,0.04);
       overflow: hidden;
+    }
+
+    .logos-container {
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .logos-label {
@@ -628,7 +633,7 @@
       text-transform: uppercase;
       color: rgba(232,239,242,0.18);
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
 
     .logos-ticker-wrap {
@@ -662,7 +667,7 @@
       display: flex;
       align-items: center;
       width: max-content;
-      gap: 96px;
+      gap: 70px;
     }
 
     .logos-ticker-track:hover {
@@ -670,7 +675,7 @@
     }
 
     .logos-ticker-track img {
-      height: 54px;
+      height: 38px;
       width: auto;
       opacity: 0.72;
       filter: grayscale(1) brightness(10);
@@ -685,25 +690,42 @@
 
     /* Michelin wordmark (cropped 766×262, ~3:1) */
     .logos-ticker-track img.logo-michelin {
-      height: 46px;
+      height: 32px;
     }
 
     /* Swift (cropped 973×704, ~1.4:1) — make it bigger */
     .logos-ticker-track img.logo-swift {
-      height: 78px;
+      height: 55px;
     }
 
     /* Columbia: 1561×284 — very wide, reduce height to keep it balanced */
     .logos-ticker-track img.logo-columbia {
-      height: 34px;
+      height: 24px;
     }
 
     /* Landsman (cropped 2344×1194, ~2:1): significantly larger than others */
     .logos-ticker-track img.logo-landsman {
-      height: 86px;
+      height: 60px;
     }
 
-    .logos-ticker-track img.logo-skideal { height: 140px; }
+    .logos-ticker-track img.logo-skideal { height: 98px; }
+
+    /* Ishwi Omakase (cropped ~2.9:1) — already white artwork, no invert needed */
+    .logos-ticker-track img.logo-ishwi {
+      height: 35px;
+    }
+
+    /* Mizata by Antiresort (cropped ~3.2:1, close to Michelin's ratio) — already white, no invert needed */
+    .logos-ticker-track img.logo-mizata {
+      height: 32px;
+    }
+
+    /* OAKS Hotel (886×522, ~1.7:1) — already white artwork, no invert needed.
+       Fills its canvas edge-to-edge (no padding), so it reads larger per-pixel
+       than the wordmark logos — sized smaller to match perceived weight. */
+    .logos-ticker-track img.logo-oaks {
+      height: 36px;
+    }
 
 .logos-ticker-track img:hover {
       opacity: 1;
@@ -1017,13 +1039,16 @@
       .about-text { order: 2; padding: 32px 24px; }
 
       /* Logos — smaller + tighter gap on mobile to show 3+ at once */
-      .logos-section { padding: 40px 20px; }
+      .logos-section { padding: 16px 20px 28px; }
       .logos-ticker-track { gap: 36px; }
-      .logos-ticker-track img { height: 28px; }
-      .logos-ticker-track img.logo-swift { height: 40px; }
-      .logos-ticker-track img.logo-landsman { height: 44px; }
-      .logos-ticker-track img.logo-michelin { height: 24px; }
-      .logos-ticker-track img.logo-columbia { height: 18px; }
+      .logos-ticker-track img { height: 20px; }
+      .logos-ticker-track img.logo-swift { height: 28px; }
+      .logos-ticker-track img.logo-landsman { height: 31px; }
+      .logos-ticker-track img.logo-michelin { height: 17px; }
+      .logos-ticker-track img.logo-columbia { height: 13px; }
+      .logos-ticker-track img.logo-ishwi { height: 18px; }
+      .logos-ticker-track img.logo-mizata { height: 17px; }
+      .logos-ticker-track img.logo-oaks { height: 19px; }
 
       /* Footer */
       .site-footer { padding: 24px 20px; }
@@ -1078,7 +1103,7 @@
 
     /* ─── CATEGORY LINKS (homepage) ─── */
     .category-links-section {
-      padding: 80px 40px;
+      padding: 40px 40px 80px;
       background: var(--dark2);
       border-top: 1px solid rgba(255,255,255,0.05);
     }
@@ -1611,7 +1636,7 @@
     @media (max-width: 768px) {
       .page-hero { padding: 130px 20px 48px; }
 
-      .category-links-section { padding: 56px 20px; }
+      .category-links-section { padding: 28px 20px 56px; }
       .category-grid { grid-template-columns: 1fr; }
 
       .testimonials-section { padding: 56px 20px; }
