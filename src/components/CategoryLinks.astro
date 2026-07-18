@@ -1,8 +1,7 @@
 ---
 // Homepage "Projects by Category" section — links out to the four category
-// pages. Project counts are computed from projects.ts, not hardcoded.
+// pages.
 import { categories } from '../data/categories.ts';
-import { projects } from '../data/projects.ts';
 ---
 <section class="category-links-section" id="categories">
   <div class="films-header">
@@ -12,18 +11,14 @@ import { projects } from '../data/projects.ts';
   </div>
 
   <div class="category-grid">
-    {categories.map((cat) => {
-      const count = projects.filter((p) => p.category4 === cat.slug).length;
-      return (
-        <a class="category-card" href={`/category/${cat.slug}/`}>
-          <span class="category-card-count">{count} Project{count === 1 ? '' : 's'}</span>
-          <h3 class="category-card-title">{cat.title}</h3>
-          <p class="category-card-blurb">{cat.blurb}</p>
-          <span class="category-card-link">Explore
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
-      );
-    })}
+    {categories.map((cat) => (
+      <a class="category-card" href={`/category/${cat.slug}/`}>
+        <h3 class="category-card-title">{cat.title}</h3>
+        <p class="category-card-blurb">{cat.blurb}</p>
+        <span class="category-card-link">Explore
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    ))}
   </div>
 </section>

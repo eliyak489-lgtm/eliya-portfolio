@@ -1106,16 +1106,6 @@
       border-color: rgba(122,158,175,0.4);
     }
 
-    .category-card-count {
-      display: block;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--blue-light);
-      margin-bottom: 14px;
-    }
-
     .category-card-title {
       font-size: 1.15rem;
       font-weight: 700;
