@@ -8,12 +8,21 @@ interface Props {
   title?: string;
   description?: string;
   navBase?: string;
+  image?: string;
 }
 const {
-  title = 'Eliya Kapach — Filmmaker & Content Creator',
-  description = 'Cinematic storytelling for brands and experiences. Films that make people feel, respond, and remember.',
+  title = 'Eliya Kapach | Filmmaker & Director',
+  description = 'Cinematic films for brands, resorts and destinations.',
   navBase = '',
+  image = '/og-image.jpg',
 } = Astro.props;
+
+// Site-wide social sharing metadata (WhatsApp, LinkedIn, Facebook, X,
+// iMessage). Built from the same title/description each page already passes
+// in, plus the `site` URL configured in astro.config.mjs — no separate
+// metadata source to maintain.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +31,28 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Eliya Kapach" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
