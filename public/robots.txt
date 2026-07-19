@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eliyakapach.com/sitemap-index.xml
