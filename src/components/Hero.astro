@@ -1,7 +1,16 @@
 ---
-// Full-width hero with looping reel background. On mobile the video is
-// swapped for a static poster (see .hero-bg in global.css) — this preload
-// hint is scoped to mobile widths so desktop never fetches the image.
+// Full-width hero with looping reel background — plays on mobile too now,
+// using a separate lower-res/bitrate file (see public/hero-reel-mobile.mp4)
+// so mobile never fetches the full desktop file. .hero-bg + the poster image
+// remain the fallback shown while the video loads, or if autoplay is
+// blocked outright (see the play().catch() below).
+//
+// The video source is picked in JS (below), not via <source media="">.
+// iOS Safari has a long history of unreliably honoring the media attribute
+// on <source> elements inside <video> — unlike <picture>, where it's solid.
+// Setting .src directly is the robust, widely-recommended workaround, and
+// since the element starts with no src/source at all, nothing is fetched
+// until that script runs, so there's no risk of double-loading.
 ---
 <link rel="preload" as="image" href="/hero-poster.jpg" media="(max-width: 768px)" />
 <section class="hero">
@@ -11,9 +20,7 @@
     id="heroVideo"
     autoplay muted loop playsinline
     preload="auto"
-  >
-    <source src="/HERO-REELcomp.mp4" type="video/mp4" />
-  </video>
+  ></video>
   <div class="hero-overlay"></div>
   <div class="hero-fade"></div>
 
@@ -33,6 +40,12 @@
 <script>
   const video = document.getElementById('heroVideo') as HTMLVideoElement | null;
   if (video) {
+    // Pick the source once, up front — deliberately not re-checked on
+    // resize, matching how <source media=""> would have behaved anyway
+    // (browsers only reconsider it on an explicit .load() call).
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    video.src = isMobile ? '/hero-reel-mobile.mp4' : '/HERO-REELcomp.mp4';
+
     const showVideo = () => video.classList.add('loaded');
     video.addEventListener('canplay', showVideo);
     video.addEventListener('loadeddata', showVideo);
