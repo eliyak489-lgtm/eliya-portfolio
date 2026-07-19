@@ -11,6 +11,11 @@
 // Setting .src directly is the robust, widely-recommended workaround, and
 // since the element starts with no src/source at all, nothing is fetched
 // until that script runs, so there's no risk of double-loading.
+//
+// Mobile keeps the original background-video structure (text overlaid on
+// top, same as desktop) — just a shorter hero box with the video letterboxed
+// via object-fit: contain instead of cover, so it keeps its full 16:9 frame
+// with no cropping. See the mobile HERO rules in global.css.
 ---
 <link rel="preload" as="image" href="/hero-poster.jpg" media="(max-width: 768px)" />
 <section class="hero">
