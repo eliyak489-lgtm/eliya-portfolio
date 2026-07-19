@@ -1,18 +1,16 @@
 ---
-// Selected Work grid with category tabs. Reused on the homepage (all projects
-// + tabs) and later on category pages (pre-filtered, tabs hidden).
+// Selected Work grid — homepage only. No category filter tabs here; the
+// "Projects by Category" section directly below covers that already.
 import { projects as allProjects } from '../data/projects.ts';
 import type { Project } from '../data/projects.ts';
 import FilmCard from './FilmCard.astro';
 
 interface Props {
   items?: Project[];
-  showTabs?: boolean;
   title?: string;
 }
 const {
   items = allProjects,
-  showTabs = true,
   title = 'Selected Work',
 } = Astro.props;
 ---
@@ -24,49 +22,7 @@ const {
     <span class="films-count">{items.length} Projects</span>
   </div>
 
-  {showTabs && (
-    <div class="films-tabs">
-      <button class="tab-btn active" data-filter="all">All</button>
-      <button class="tab-btn" data-filter="viral">Viral Content</button>
-      <button class="tab-btn" data-filter="travel">Short Travel Films</button>
-      <button class="tab-btn" data-filter="commercial">Commercials</button>
-    </div>
-  )}
-
   <div class="films-grid" id="filmsGrid">
     {items.map((project) => <FilmCard project={project} />)}
   </div>
 </section>
-
-<script>
-  const grid = document.getElementById('filmsGrid');
-  const tabs = document.querySelector<HTMLElement>('.films-tabs');
-
-  if (grid && tabs) {
-    tabs.addEventListener('click', (e) => {
-      const target = e.target as Element | null;
-      const btn = target?.closest<HTMLElement>('.tab-btn');
-      if (!btn) return;
-      const category = btn.dataset.filter;
-
-      tabs.querySelectorAll('.tab-btn').forEach((t) => t.classList.remove('active'));
-      btn.classList.add('active');
-
-      grid.querySelectorAll<HTMLElement>('.film-card').forEach((card) => {
-        const show = category === 'all' || card.dataset.category === category;
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(12px)';
-        setTimeout(() => {
-          card.style.display = show ? '' : 'none';
-          if (show) {
-            requestAnimationFrame(() => {
-              card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-              card.style.opacity = '1';
-              card.style.transform = '';
-            });
-          }
-        }, 80);
-      });
-    });
-  }
-</script>
