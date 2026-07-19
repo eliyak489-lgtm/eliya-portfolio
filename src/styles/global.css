@@ -998,12 +998,11 @@
       .nav-toggle { display: flex; }
 
       /* Hero — same background-video structure as desktop (text overlaid on
-         top), just a shorter box. The video uses object-fit: contain instead
-         of cover so it keeps its full 16:9 frame with no cropping; the dark
-         .hero-bg + overlay show through as letterboxing in any leftover
-         space above/below it. */
-      .hero { height: 60vh; min-height: 380px; padding: 0 20px 48px; justify-content: center; }
-      .hero-video { object-fit: contain; }
+         top), just a shorter box so the crop is less aggressive than a
+         full-height hero. object-position nudges the crop so the main
+         subject stays clear of the title/buttons overlaid on top. */
+      .hero { height: 62vh; min-height: 460px; padding: 0 20px 48px; justify-content: center; }
+      .hero-video { object-fit: cover; object-position: 58% center; }
       .hero-bg { background-image: url('/hero-poster.jpg'); }
       .hero h1 { font-size: clamp(1.2rem, 6vw, 2rem); white-space: nowrap; letter-spacing: 0.04em; }
       .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; padding: 6px 14px; white-space: nowrap; }
