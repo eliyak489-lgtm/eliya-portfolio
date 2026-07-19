@@ -63,6 +63,13 @@ export const projects: Project[] = [
     youtubeId: 'UOiiDv3qbjs', thumbnail: '/thumbnails/the-westin.jpg', alt: 'The Westin Cozumel', featured: true,
     client: 'The Westin Cozumel', role: 'Director, Cinematographer, Editor, Colorist.' },
 
+  // Ritual x Escape — OAKS Hotel, 2026 (no `location`/`year` fields exist in
+  // the schema yet, noting here so it isn't lost).
+  { slug: 'ritual-x-escape', title: 'Ritual x Escape', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'A cinematic portrait of Ritual x Escape at OAKS Hotel.', youtubeId: '9IV2a8Qxta0',
+    thumbnail: '/thumbnails/oaks-resort.webp', alt: 'Ritual x Escape', featured: true,
+    client: 'OAKS Hotel', role: 'Director, Cinematographer, Editor, Colorist.' },
+
   { slug: 'skideal-1', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Travel Agency Content', youtubeId: '9NpmeWyhrGI',
     thumbnail: '/thumbnails/Skideal1.jpg', alt: 'Skideal' },
