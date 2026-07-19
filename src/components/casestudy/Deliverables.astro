@@ -1,15 +1,12 @@
 ---
-import { placeholders } from '../../data/placeholders.ts';
 interface Props { items?: string[]; }
 const { items = [] } = Astro.props;
 ---
-<div class="cs-block">
-  <h3 class="cs-block-label">Deliverables</h3>
-  {items.length > 0 ? (
+{items.length > 0 && (
+  <div class="cs-block">
+    <h3 class="cs-block-label">Deliverables</h3>
     <ul class="cs-deliverables-list">
       {items.map((item) => <li>{item}</li>)}
     </ul>
-  ) : (
-    <p class="cs-placeholder">{placeholders.deliverables}</p>
-  )}
-</div>
+  </div>
+)}

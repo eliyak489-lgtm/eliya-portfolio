@@ -1,15 +1,12 @@
 ---
-import { placeholders } from '../../data/placeholders.ts';
 interface Props { images?: string[]; alt: string; }
 const { images = [], alt } = Astro.props;
 ---
-<div class="cs-block">
-  <h3 class="cs-block-label">Behind the Scenes</h3>
-  {images.length > 0 ? (
+{images.length > 0 && (
+  <div class="cs-block">
+    <h3 class="cs-block-label">Behind the Scenes</h3>
     <div class="cs-gallery-grid">
       {images.map((src) => <img src={src} alt={`${alt} — behind the scenes`} loading="lazy" />)}
     </div>
-  ) : (
-    <p class="cs-placeholder">{placeholders.bts}</p>
-  )}
-</div>
+  </div>
+)}

@@ -42,20 +42,26 @@ const category = categories.find((c) => c.slug === project.category4);
 
   <div class="cs-body">
     <!-- OVERVIEW / CHALLENGE / CREATIVE DIRECTION / ROLE -->
-    <div class="cs-block">
-      <h3 class="cs-block-label">Overview</h3>
-      <p class="cs-block-text">{project.overview || placeholders.overview}</p>
-    </div>
+    {project.overview && (
+      <div class="cs-block">
+        <h3 class="cs-block-label">Overview</h3>
+        <p class="cs-block-text">{project.overview}</p>
+      </div>
+    )}
 
-    <div class="cs-block">
-      <h3 class="cs-block-label">The Challenge</h3>
-      <p class="cs-block-text">{project.challenge || placeholders.challenge}</p>
-    </div>
+    {project.challenge && (
+      <div class="cs-block">
+        <h3 class="cs-block-label">The Challenge</h3>
+        <p class="cs-block-text">{project.challenge}</p>
+      </div>
+    )}
 
-    <div class="cs-block">
-      <h3 class="cs-block-label">Creative Direction</h3>
-      <p class="cs-block-text">{project.creativeDirection || placeholders.creativeDirection}</p>
-    </div>
+    {project.creativeDirection && (
+      <div class="cs-block">
+        <h3 class="cs-block-label">Creative Direction</h3>
+        <p class="cs-block-text">{project.creativeDirection}</p>
+      </div>
+    )}
 
     <div class="cs-block">
       <h3 class="cs-block-label">My Role</h3>

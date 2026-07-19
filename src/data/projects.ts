@@ -136,12 +136,4 @@ export const projects: Project[] = [
   { slug: 'beauty-of-kazbegi', title: 'The Beauty Of KAZBEGI, Georgia', category: 'viral', category4: 'travel-films', tag: 'Viral Content',
     description: 'A Video for a Travel Agency', youtubeId: 'sEuzJMAd26U',
     thumbnail: '/thumbnails/Travel agency.jpg', alt: 'Travel Agency' },
-
-  // ── Hotels & Resorts — placeholders, awaiting the remaining "Luxury" videos ──
-  // Replace each entry below (title, youtubeId, thumbnail, case-study fields)
-  // once the real project details are provided; remove `placeholder: true`.
-  { slug: 'luxury-placeholder-4', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
-  { slug: 'luxury-placeholder-5', title: 'Luxury Hospitality Film', category4: 'hotels-resorts',
-    tag: 'Hotels & Resorts', description: 'Case study coming soon.', placeholder: true },
 ];
