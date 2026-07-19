@@ -1,33 +1,34 @@
 ---
-// Homepage Instagram strip. Deliberately not an embedded IG API widget (those
-// need app review + tokens and break easily) — tiles just link out to the
-// profile. Add real post thumbnails in data/instagram.ts when ready.
-import { instagramTiles } from '../data/instagram.ts';
+// Homepage Instagram strip — plain local images linking out to the real
+// post, no embed iframe and no Instagram chrome/branding. A card only
+// renders if its image file actually exists in /public/instagram/; if none
+// of the three do, the section renders nothing at all.
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { instagramPosts } from '../data/instagram.ts';
 import { site } from '../data/site.ts';
----
-<section class="instagram-section" id="instagram">
-  <div class="films-header">
-    <div>
-      <h2 class="section-title">Follow Along</h2>
-    </div>
-    <a href={site.instagramUrl} target="_blank" rel="noopener" class="hero-btn instagram-follow-btn">
-      {site.instagramHandle}
-    </a>
-  </div>
 
-  <div class="instagram-scroll">
-    {instagramTiles.map((tile) => (
-      <a href={site.instagramUrl} target="_blank" rel="noopener" class="instagram-tile" aria-label={tile.alt}>
-        {tile.thumbnail ? (
-          <img src={tile.thumbnail} alt={tile.alt} loading="lazy" />
-        ) : (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-          </svg>
-        )}
+const posts = instagramPosts
+  .filter((post) => fs.existsSync(fileURLToPath(new URL(`../../public${post.image}`, import.meta.url))))
+  .slice(0, 3);
+---
+{posts.length > 0 && (
+  <section class="instagram-section" id="instagram">
+    <div class="films-header">
+      <div>
+        <h2 class="section-title">Follow Along</h2>
+      </div>
+      <a href={site.instagramUrl} target="_blank" rel="noopener" class="hero-btn instagram-follow-btn">
+        View more on Instagram
       </a>
-    ))}
-  </div>
-</section>
+    </div>
+
+    <div class="instagram-grid">
+      {posts.map((post) => (
+        <a href={post.postUrl} target="_blank" rel="noopener" class="instagram-tile" aria-label={post.alt}>
+          <img src={post.image} alt={post.alt} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </section>
+)}

@@ -1298,55 +1298,51 @@
 
     /* ─── INSTAGRAM ─── */
     .instagram-section {
-      padding: 64px 0;
+      padding: 64px 40px;
       background: var(--dark2);
       border-top: 1px solid rgba(255,255,255,0.04);
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
-    .instagram-section .films-header { padding: 0 40px; margin-bottom: 28px; }
+    .instagram-section .films-header { margin-bottom: 28px; }
 
     .instagram-follow-btn { font-size: 10px; padding: 10px 22px; }
 
-    .instagram-scroll {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 0 40px 8px;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      justify-items: center;
     }
 
-    .instagram-scroll::-webkit-scrollbar { display: none; }
-
     .instagram-tile {
-      flex: 0 0 auto;
-      width: 180px;
-      aspect-ratio: 1;
-      border-radius: 10px;
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--dark3), var(--dark2));
+      background: var(--dark3);
       border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(232,239,242,0.2);
-      scroll-snap-align: start;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.3s;
     }
 
     .instagram-tile:hover {
-      border-color: rgba(122,158,175,0.4);
-      color: var(--blue-light);
+      border-color: rgba(122,158,175,0.35);
     }
 
     .instagram-tile img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.6s ease;
     }
 
-    .instagram-tile svg { width: 32px; height: 32px; }
+    .instagram-tile:hover img {
+      transform: scale(1.045);
+    }
 
     /* ─── CONTACT FORM ─── */
     .contact-form-section {
@@ -1647,9 +1643,9 @@
 
       .final-cta-section { padding: 72px 20px; }
 
-      .instagram-section .films-header,
-      .instagram-scroll { padding-left: 20px; padding-right: 20px; }
-      .instagram-tile { width: 130px; }
+      .instagram-section { padding: 56px 20px; }
+      .instagram-grid { grid-template-columns: 1fr; gap: 16px; }
+      .instagram-tile { max-width: 100%; }
 
       .contact-form-section { padding: 64px 20px; }
       .inquiry-form { padding: 24px; }
