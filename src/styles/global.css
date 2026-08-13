@@ -1,14 +1,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:       #7A9EAF;
-      --blue-light: #A8C4D0;
-      --blue-glow:  rgba(122,158,175,0.15);
-      --dark:       #0C0F12;
-      --dark2:      #111619;
-      --dark3:      #181D22;
-      --gray:       #7A8A94;
-      --white:      #E8EFF2;
+      /* Direction A — Warm Charcoal + Olive (local color prototype).
+         Token names are kept (--blue* now hold the warm-olive accent) so this
+         is a values-only remap: no markup or selector changes. */
+      --blue:       #9C9A6E;  /* primary accent — muted olive */
+      --blue-light: #B7B58C;  /* accent hover / light */
+      --blue-glow:  rgba(156,154,110,0.15);
+      --dark:       #15130F;  /* primary background — warm charcoal */
+      --dark2:      #1D1A15;  /* secondary background */
+      --dark3:      #26221B;  /* card / surface */
+      --gray:       #A9A093;  /* secondary text — warm taupe */
+      --white:      #EDE7DC;  /* primary text — warm ivory */
     }
 
     html { scroll-behavior: smooth; }
@@ -33,9 +36,9 @@
     }
 
     nav.scrolled {
-      background: rgba(12,15,18,0.85);
+      background: rgba(21,19,15,0.85);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(237,231,220,0.05);
     }
 
     .nav-logo {
@@ -60,7 +63,7 @@
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.45);
+      color: rgba(237,231,220,0.45);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -102,7 +105,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(12,15,18,0.97);
+      background: rgba(21,19,15,0.97);
       backdrop-filter: blur(20px);
       opacity: 0;
       visibility: hidden;
@@ -233,8 +236,8 @@
       font-weight: 600;
       letter-spacing: 0.45em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.5);
-      border: 1px solid rgba(232,239,242,0.15);
+      color: rgba(237,231,220,0.5);
+      border: 1px solid rgba(237,231,220,0.15);
       border-radius: 100px;
       padding: 6px 18px;
     }
@@ -253,7 +256,7 @@
       font-size: 12px;
       font-weight: 500;
       letter-spacing: 0.2em;
-      color: rgba(232,239,242,0.4);
+      color: rgba(237,231,220,0.4);
     }
 
     .hero-available span {
@@ -276,25 +279,25 @@
       text-decoration: none;
       padding: 12px 28px;
       border-radius: 100px;
-      border: 1px solid rgba(232,239,242,0.25);
+      border: 1px solid rgba(237,231,220,0.25);
       color: var(--white);
       transition: background 0.2s, border-color 0.2s;
       backdrop-filter: blur(6px);
-      background: rgba(255,255,255,0.05);
+      background: rgba(237,231,220,0.05);
     }
 
     .hero-btn:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(232,239,242,0.5);
+      background: rgba(237,231,220,0.12);
+      border-color: rgba(237,231,220,0.5);
     }
 
     .hero-btn.primary {
-      background: rgba(122,158,175,0.15);
-      border-color: rgba(122,158,175,0.4);
+      background: rgba(156,154,110,0.15);
+      border-color: rgba(156,154,110,0.4);
     }
 
     .hero-btn.primary:hover {
-      background: rgba(122,158,175,0.28);
+      background: rgba(156,154,110,0.28);
     }
 
     .hero-border {
@@ -308,8 +311,8 @@
 
     /* ─── TICKER ─── */
     .ticker {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(237,231,220,0.05);
+      border-bottom: 1px solid rgba(237,231,220,0.05);
       overflow: hidden;
       padding: 14px 0;
       background: var(--dark);
@@ -332,7 +335,7 @@
       font-weight: 600;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.18);
+      color: rgba(237,231,220,0.18);
       white-space: nowrap;
     }
 
@@ -379,8 +382,8 @@
     .stats-section {
       padding: 36px 40px;
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(237,231,220,0.05);
+      border-bottom: 1px solid rgba(237,231,220,0.05);
     }
 
     .stats-grid {
@@ -402,7 +405,7 @@
       transform: translateY(-50%);
       height: 50px;
       width: 1px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(237,231,220,0.08);
     }
 
     .stat-number {
@@ -428,7 +431,7 @@
       font-weight: 600;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.35);
+      color: rgba(237,231,220,0.35);
       margin-top: 8px;
     }
 
@@ -458,7 +461,7 @@
       font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.2);
+      color: rgba(237,231,220,0.2);
     }
 
     /* Filter Tabs */
@@ -466,7 +469,7 @@
       display: flex;
       gap: 0;
       margin-bottom: 28px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(237,231,220,0.07);
       justify-content: center;
     }
 
@@ -476,7 +479,7 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.28);
+      color: rgba(237,231,220,0.28);
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
@@ -486,7 +489,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .tab-btn:hover { color: rgba(232,239,242,0.65); }
+    .tab-btn:hover { color: rgba(237,231,220,0.65); }
 
     .tab-btn.active {
       color: var(--white);
@@ -499,6 +502,42 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
+
+    /* Homepage "Selected Work" — Alternating Rows composition. Homepage-only;
+       the shared .films-grid (/work, category pages, related projects) is
+       unchanged. Six-column base; each row's spans sum to 6 so the 8 cards flow
+       into a deliberate loose/tight cadence:
+         Row 1 — 2 large        (span 3 + 3)
+         Row 2 — 1 wide band    (span 6, cinematic centerpiece / breathing point)
+         Row 3 — 3 smaller      (span 2 + 2 + 2)
+         Row 4 — 2 medium/wide  (span 3 + 3)
+       Cards themselves are unchanged (radius, hover, overlay, typography). */
+    .films-grid--selected {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;          /* compactness pass: was 16px */
+      max-width: 1200px;  /* compactness pass: was 1400px (proportional scale-down) */
+      margin: 0 auto;
+    }
+    .films-grid--selected > .film-card:nth-child(1),
+    .films-grid--selected > .film-card:nth-child(2) { grid-column: span 3; }
+    .films-grid--selected > .film-card:nth-child(3) {
+      grid-column: span 6;
+      /* Cinematic letterbox band — punctuation between the opening pair and the
+         smaller trio, not a second hero. object-fit: cover on .film-thumb.
+         compactness pass: aspect 2.8 -> 2.95 (a touch shorter, more letterbox). */
+      aspect-ratio: 2.95 / 1;
+    }
+    /* Bias the crop slightly toward the top so the "MONGOLIA" title (upper
+       quarter) and the van stay in frame; the wide crop drops foreground/sky. */
+    .films-grid--selected > .film-card:nth-child(3) .film-thumb {
+      object-position: center 40%;
+    }
+    .films-grid--selected > .film-card:nth-child(4),
+    .films-grid--selected > .film-card:nth-child(5),
+    .films-grid--selected > .film-card:nth-child(6) { grid-column: span 2; }
+    .films-grid--selected > .film-card:nth-child(7),
+    .films-grid--selected > .film-card:nth-child(8) { grid-column: span 3; }
 
     .film-card {
       position: relative;
@@ -530,11 +569,23 @@
       filter: saturate(1) brightness(0.75);
     }
 
+    /* Portrait Daniel Glasser thumbnails cropped into the landscape 16:10 card.
+       The performer sits in the upper-middle of each vertical frame, so bias the
+       cover crop upward to keep the subject (and title graphic) in view. Scoped
+       to these two files only via src; every other card is unaffected. */
+    .film-thumb[src="/thumbnails/daniel-glasser-1.jpg"] { object-position: center 35%; }
+    .film-thumb[src="/thumbnails/daniel-glasser-2.jpg"] { object-position: center 42%; }
+
+    /* Portrait OAKS "Sun To Star" still-life: book + cup sit in the vertical
+       middle, dark blur above, lit linen below — bias the cover crop downward
+       so the subject survives the landscape crop. Scoped to this file only. */
+    .film-thumb[src="/thumbnails/oaks-sun-to-star.jpg"] { object-position: center 58%; }
+
     /* Overlay — only visible on hover */
     .film-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(12,15,18,0.92) 0%, rgba(12,15,18,0.3) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(21,19,15,0.92) 0%, rgba(21,19,15,0.3) 55%, transparent 100%);
       opacity: 0;
       transition: opacity 0.35s;
     }
@@ -578,7 +629,7 @@
     .film-desc {
       font-size: 11px;
       font-weight: 300;
-      color: rgba(232,239,242,0.55);
+      color: rgba(237,231,220,0.55);
       line-height: 1.5;
     }
 
@@ -597,8 +648,8 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,0.7);
-      background: rgba(12,15,18,0.35);
+      border: 1.5px solid rgba(237,231,220,0.7);
+      background: rgba(21,19,15,0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -616,8 +667,8 @@
     .logos-section {
       padding: 20px 40px 36px;
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(237,231,220,0.04);
+      border-bottom: 1px solid rgba(237,231,220,0.04);
       overflow: hidden;
     }
 
@@ -631,7 +682,7 @@
       font-weight: 600;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.18);
+      color: rgba(237,231,220,0.18);
       text-align: center;
       margin-bottom: 24px;
     }
@@ -749,7 +800,7 @@
       grid-template-columns: 1fr 1.2fr;
       border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(237,231,220,0.07);
       background: var(--dark2);
     }
 
@@ -788,7 +839,7 @@
     .about-text p {
       font-size: 15px;
       font-weight: 400;
-      color: rgba(232,239,242,0.72);
+      color: rgba(237,231,220,0.72);
       line-height: 1.9;
       margin-bottom: 16px;
     }
@@ -809,7 +860,7 @@
     .skills-wrap {
       margin-top: 32px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(237,231,220,0.06);
     }
 
     .skills-label {
@@ -817,7 +868,7 @@
       font-weight: 700;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.2);
+      color: rgba(237,231,220,0.2);
       margin-bottom: 14px;
     }
 
@@ -832,8 +883,8 @@
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.35);
-      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(237,231,220,0.35);
+      border: 1px solid rgba(237,231,220,0.08);
       border-radius: 100px;
       padding: 7px 16px;
       transition: border-color 0.2s, color 0.2s;
@@ -842,6 +893,44 @@
     .skill-tag:hover {
       border-color: var(--blue);
       color: var(--blue-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       LUMINANCE EXPERIMENT — Editorial Light Break (About section ONLY).
+       Every rule is scoped under .about-section, so no other section can
+       inherit the light theme. Warm stone ground + inverted warm-ink text;
+       the olive accent is swapped for a DARKER shade of the SAME hue so it
+       stays readable on light. To revert: delete this block and restore
+       .category-links-section background to var(--dark2).
+       ═══════════════════════════════════════════════════════════════ */
+    .about-section {
+      background: #D8CDBB;                     /* warm stone — the one light section */
+    }
+    .about-section .about-card {
+      background: transparent;                 /* let the stone show; frame stays */
+      border-color: rgba(33,30,25,0.12);       /* warm dark hairline (was ivory) */
+    }
+    .about-section .about-heading,
+    .about-section .about-text p.about-intro,
+    .about-section .about-text p.highlight {
+      color: #211E19;                          /* warm near-black ink (primary) */
+    }
+    .about-section .about-text p {
+      color: #5A5248;                          /* warm dark taupe (secondary) ~4.9:1 */
+    }
+    .about-section .skills-wrap {
+      border-top-color: rgba(33,30,25,0.14);
+    }
+    .about-section .skills-label {
+      color: #5A5248;                          /* readable label (was faint ivory) */
+    }
+    .about-section .skill-tag {
+      color: #5A5248;
+      border-color: rgba(33,30,25,0.20);
+    }
+    .about-section .skill-tag:hover {
+      color: #504F38;                          /* darker olive, same hue ~5.3:1 */
+      border-color: #504F38;
     }
 
     /* ─── CONTACT ─── */
@@ -876,21 +965,21 @@
       display: inline-flex;
       align-items: center;
       padding: 15px 26px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(237,231,220,0.06);
       border-radius: 100px;
       font-size: 14px;
       font-weight: 400;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
       letter-spacing: 0.01em;
       user-select: all;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(237,231,220,0.07);
     }
 
     /* ─── FOOTER (site-wide, via BaseLayout) ─── */
     .site-footer {
       padding: 32px 40px;
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(237,231,220,0.06);
     }
 
     .site-footer-inner {
@@ -912,11 +1001,11 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(237,231,220,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
       text-decoration: none;
       transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
@@ -924,14 +1013,14 @@
     .social-icon svg { width: 18px; height: 18px; }
 
     .social-icon:hover {
-      border-color: rgba(232,239,242,0.4);
+      border-color: rgba(237,231,220,0.4);
       color: var(--white);
-      background: rgba(255,255,255,0.05);
+      background: rgba(237,231,220,0.05);
     }
 
     .contact-copy {
       font-size: 12px;
-      color: rgba(232,239,242,0.15);
+      color: rgba(237,231,220,0.15);
       letter-spacing: 0.08em;
     }
 
@@ -983,7 +1072,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: rgba(232,239,242,0.4);
+      color: rgba(237,231,220,0.4);
       transition: color 0.2s;
     }
 
@@ -1015,6 +1104,15 @@
       .films-section { padding: 60px 20px; }
       .films-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .film-info { padding: 18px 20px; }
+
+      /* Selected Work on mobile: a single clean column — large readable
+         thumbnails, comfortable tap targets, strong vertical rhythm. Reset the
+         desktop column spans (needed so span 6 doesn't create implicit tracks),
+         and let the wide band relax to a large 16:9 hero rather than a thin
+         strip. */
+      .films-grid--selected { grid-template-columns: 1fr; gap: 14px; max-width: 520px; }
+      .films-grid--selected > .film-card { grid-column: auto !important; }
+      .films-grid--selected > .film-card:nth-child(3) { aspect-ratio: 16 / 9; }
 
       /* Tabs — horizontal scroll strip instead of wrapping/overflowing */
       .films-tabs {
@@ -1077,7 +1175,7 @@
       font-weight: 700;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.25);
+      color: rgba(237,231,220,0.25);
     }
 
     /* ─── PAGE HERO (sub-pages: /work, /category/*, /project/*) ─── */
@@ -1097,7 +1195,7 @@
 
     .page-hero-sub {
       font-size: 15px;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
       max-width: 560px;
       margin: 0 auto;
       line-height: 1.7;
@@ -1106,23 +1204,35 @@
     /* ─── CATEGORY LINKS (homepage) ─── */
     .category-links-section {
       padding: 40px 40px 80px;
-      background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: #393329;  /* WARM MID-TONE (luminance experiment) — cards stay
+                               darker (var(--dark3) #26221B) so they read inset */
+      border-top: 1px solid rgba(237,231,220,0.05);
+    }
+
+    /* "Projects by Category" heading ~10% smaller than the shared .section-title
+       (scoped to this section only; same font, weight, alignment, and margins). */
+    .category-links-section .section-title {
+      font-size: clamp(1.62rem, 3.6vw, 2.7rem);
     }
 
     .category-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 16px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
+    /* Image-led editorial category card: thumbnail on top (~60% of the card),
+       compact title / blurb / EXPLORE below. Reuses the Selected Work visual
+       language (radius, muted-to-vivid image, restrained lift + blue border on
+       hover). No overlays, gradients, glassmorphism, or icons. */
     .category-card {
-      display: block;
-      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(237,231,220,0.08);
       background: var(--dark3);
       text-decoration: none;
       transition: transform 0.3s ease, border-color 0.3s ease;
@@ -1130,22 +1240,49 @@
 
     .category-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(122,158,175,0.4);
+      border-color: rgba(156,154,110,0.4);
+    }
+
+    .category-card-media {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: var(--dark2);
+    }
+
+    .category-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.85) brightness(0.92);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .category-card:hover .category-card-img {
+      transform: scale(1.04);
+      filter: saturate(1) brightness(1);
+    }
+
+    .category-card-body {
+      padding: 16px 20px 22px;
     }
 
     .category-card-title {
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .category-card-blurb {
       font-size: 13px;
       font-weight: 300;
       line-height: 1.6;
-      color: rgba(232,239,242,0.5);
-      margin-bottom: 22px;
+      color: rgba(237,231,220,0.5);
+      margin-bottom: 10px;
+      /* Reserve two lines so all four cards stay equal height without any
+         clamping — every blurb fits within two lines, so nothing truncates. */
+      min-height: 3.2em;
     }
 
     .category-card-link {
@@ -1171,8 +1308,8 @@
     .testimonials-section {
       padding: 80px 40px;
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(237,231,220,0.05);
+      border-bottom: 1px solid rgba(237,231,220,0.05);
     }
 
     .testimonials-grid {
@@ -1186,21 +1323,21 @@
     .testimonial-card {
       padding: 32px 26px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(237,231,220,0.08);
       background: var(--dark3);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .testimonial-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(122,158,175,0.4);
+      border-color: rgba(156,154,110,0.4);
     }
 
     .testimonial-quote {
       font-size: 14px;
       font-weight: 300;
       line-height: 1.7;
-      color: rgba(232,239,242,0.75);
+      color: rgba(237,231,220,0.75);
       margin-bottom: 22px;
     }
 
@@ -1235,7 +1372,7 @@
     }
 
     .faq-item {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(237,231,220,0.07);
     }
 
     .faq-question {
@@ -1257,7 +1394,7 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      color: rgba(232,239,242,0.35);
+      color: rgba(237,231,220,0.35);
       transition: transform 0.25s ease;
     }
 
@@ -1268,7 +1405,7 @@
       font-size: 14px;
       font-weight: 300;
       line-height: 1.8;
-      color: rgba(232,239,242,0.6);
+      color: rgba(237,231,220,0.6);
     }
 
     /* ─── FINAL CTA ─── */
@@ -1276,7 +1413,7 @@
       padding: 100px 40px;
       background: var(--dark3);
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(237,231,220,0.05);
     }
 
     .final-cta-title {
@@ -1291,7 +1428,7 @@
 
     .final-cta-sub {
       font-size: 15px;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
       max-width: 480px;
       margin: 0 auto 32px;
     }
@@ -1305,8 +1442,8 @@
     .instagram-section {
       padding: 56px 40px;
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(237,231,220,0.04);
+      border-bottom: 1px solid rgba(237,231,220,0.04);
     }
 
     .ig-intro {
@@ -1361,7 +1498,7 @@
 
     .contact-form-sub {
       font-size: 14px;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
       margin-top: 10px;
     }
 
@@ -1371,7 +1508,7 @@
       gap: 18px;
       padding: 40px;
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(237,231,220,0.07);
       background: var(--dark2);
     }
 
@@ -1400,7 +1537,7 @@
       font-weight: 700;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.35);
+      color: rgba(237,231,220,0.35);
     }
 
     .form-field input,
@@ -1409,8 +1546,8 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: var(--white);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(237,231,220,0.04);
+      border: 1px solid rgba(237,231,220,0.09);
       border-radius: 10px;
       padding: 13px 16px;
       transition: border-color 0.2s, background 0.2s;
@@ -1423,7 +1560,7 @@
     .form-field textarea:focus {
       outline: none;
       border-color: var(--blue);
-      background: rgba(255,255,255,0.06);
+      background: rgba(237,231,220,0.06);
       box-shadow: 0 0 0 4px var(--blue-glow);
     }
 
@@ -1446,7 +1583,7 @@
     .form-status {
       font-size: 13px;
       min-height: 18px;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
     }
 
     .form-status-success { color: var(--blue-light); }
@@ -1458,7 +1595,7 @@
       text-align: center;
       font-size: 13px;
       font-weight: 300;
-      color: rgba(232,239,242,0.4);
+      color: rgba(237,231,220,0.4);
     }
 
     .contact-form-alt a {
@@ -1495,7 +1632,7 @@
     .cs-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(12,15,18,0.95) 0%, rgba(12,15,18,0.3) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(21,19,15,0.95) 0%, rgba(21,19,15,0.3) 60%, transparent 100%);
     }
 
     .cs-back-link {
@@ -1510,7 +1647,7 @@
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(232,239,242,0.55);
+      color: rgba(237,231,220,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -1535,7 +1672,7 @@
 
     .cs-hero-client {
       font-size: 13px;
-      color: rgba(232,239,242,0.5);
+      color: rgba(237,231,220,0.5);
     }
 
     .cs-body {
@@ -1560,13 +1697,13 @@
       font-size: 16px;
       font-weight: 300;
       line-height: 1.9;
-      color: rgba(232,239,242,0.75);
+      color: rgba(237,231,220,0.75);
     }
 
     .cs-placeholder {
       font-size: 14px;
       font-style: italic;
-      color: rgba(232,239,242,0.3);
+      color: rgba(237,231,220,0.3);
     }
 
     .cs-video-wrap {
@@ -1607,8 +1744,8 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.05em;
-      color: rgba(232,239,242,0.7);
-      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(237,231,220,0.7);
+      border: 1px solid rgba(237,231,220,0.1);
       border-radius: 100px;
       padding: 9px 18px;
     }
@@ -1618,7 +1755,7 @@
     .cs-cta {
       text-align: center;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(237,231,220,0.07);
     }
 
     .cs-cta-text {
@@ -1634,6 +1771,8 @@
 
       .category-links-section { padding: 28px 20px 56px; }
       .category-grid { grid-template-columns: 1fr; }
+      /* Single column, larger 16:9 hero image per card on mobile. */
+      .category-card-media { aspect-ratio: 16 / 9; }
 
       .testimonials-section { padding: 56px 20px; }
       .testimonials-grid { grid-template-columns: 1fr; }

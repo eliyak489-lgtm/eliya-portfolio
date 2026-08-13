@@ -5,7 +5,6 @@ import About from '../components/About.astro';
 import LogoTicker from '../components/LogoTicker.astro';
 import FilmGrid from '../components/FilmGrid.astro';
 import CategoryLinks from '../components/CategoryLinks.astro';
-import Stats from '../components/Stats.astro';
 // Testimonials temporarily disabled — data/testimonials.ts only has
 // placeholder quotes. Re-enable this import + <Testimonials /> below once
 // real client testimonials are added there.
@@ -20,16 +19,33 @@ import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import { projects } from '../data/projects.ts';
 
-// Homepage "Selected Work" only shows real, existing content — placeholder
-// (coming soon) projects appear on /work and their category page instead.
-const homepageProjects = projects.filter((p) => !p.placeholder);
+// Homepage "Selected Work" is a curated grid: it shows only projects flagged
+// `selected: true` in projects.ts. Everything else still lives on /work, its
+// category page, and its /project/[slug] case study — just not here.
+const selectedProjects = projects.filter((p) => p.selected);
+
+// Display order for the homepage "Alternating Rows" composition. This is a
+// homepage-only presentation concern — it does NOT reorder the projects data
+// and does NOT affect /work or category pages. Any selected slug not listed
+// here falls to the end in its natural order, so the section still renders if
+// the selection changes later.
+const selectedOrder = [
+  'ishwi-omakase', 'swift-optics',                                     // Row 1 — 2 large
+  'where-silence-speaks-mongolia',                                     // Row 2 — 1 wide cinematic
+  'the-westin-cozumel', 'extreme-winter-georgia', 'ritual-x-escape',   // Row 3 — 3 smaller
+  'the-big-trip', 'europe-motorace',                                   // Row 4 — 2 medium/wide
+];
+const rank = (slug: string) => {
+  const i = selectedOrder.indexOf(slug);
+  return i === -1 ? selectedOrder.length : i;
+};
+const homepageProjects = [...selectedProjects].sort((a, b) => rank(a.slug) - rank(b.slug));
 ---
 <BaseLayout>
   <Hero />
   <FilmGrid items={homepageProjects} />
   <LogoTicker />
   <CategoryLinks />
-  <Stats />
   <About />
   {/* <Testimonials /> — see disabled import above */}
   <FAQ />

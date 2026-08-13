@@ -22,7 +22,7 @@ const {
     <span class="films-count">{items.length} Projects</span>
   </div>
 
-  <div class="films-grid" id="filmsGrid">
+  <div class="films-grid--selected" id="filmsGrid">
     {items.map((project) => <FilmCard project={project} />)}
   </div>
 </section>

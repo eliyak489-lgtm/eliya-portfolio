@@ -2,6 +2,16 @@
 // Homepage "Projects by Category" section — links out to the four category
 // pages.
 import { categories } from '../data/categories.ts';
+
+// Homepage-only display order (does NOT reorder the shared `categories` array,
+// so /work filter tabs, the contact dropdown, and category pages are unaffected).
+// Any slug not listed here falls to the end in its natural order.
+const displayOrder = ['hotels-resorts', 'outdoor-brands', 'travel-films', 'commercials'];
+const rank = (slug: string) => {
+  const i = displayOrder.indexOf(slug);
+  return i === -1 ? displayOrder.length : i;
+};
+const orderedCategories = [...categories].sort((a, b) => rank(a.slug) - rank(b.slug));
 ---
 <section class="category-links-section" id="categories">
   <div class="films-header">
@@ -11,13 +21,18 @@ import { categories } from '../data/categories.ts';
   </div>
 
   <div class="category-grid">
-    {categories.map((cat) => (
+    {orderedCategories.map((cat) => (
       <a class="category-card" href={`/category/${cat.slug}/`}>
-        <h3 class="category-card-title">{cat.title}</h3>
-        <p class="category-card-blurb">{cat.blurb}</p>
-        <span class="category-card-link">Explore
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
+        <div class="category-card-media">
+          <img class="category-card-img" src={cat.image} alt={cat.alt} loading="lazy" />
+        </div>
+        <div class="category-card-body">
+          <h3 class="category-card-title">{cat.title}</h3>
+          <p class="category-card-blurb">{cat.blurb}</p>
+          <span class="category-card-link">Explore
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
       </a>
     ))}
   </div>
