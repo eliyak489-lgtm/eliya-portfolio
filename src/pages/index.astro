@@ -11,7 +11,11 @@ import Stats from '../components/Stats.astro';
 // real client testimonials are added there.
 // import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
-import InstagramPreview from '../components/InstagramPreview.astro';
+// Instagram section temporarily removed from the homepage — the official
+// embeds render inconsistently. The component, data (data/instagram.ts), and
+// assets (public/instagram/) are all kept intact. Re-enable this import +
+// <InstagramPreview /> below to restore it.
+// import InstagramPreview from '../components/InstagramPreview.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import { projects } from '../data/projects.ts';
@@ -29,7 +33,7 @@ const homepageProjects = projects.filter((p) => !p.placeholder);
   <About />
   {/* <Testimonials /> — see disabled import above */}
   <FAQ />
-  <InstagramPreview />
+  {/* <InstagramPreview /> — temporarily removed, see disabled import above */}
   <ContactForm />
   <FinalCTA />
 </BaseLayout>
