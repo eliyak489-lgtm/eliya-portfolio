@@ -1299,52 +1299,50 @@
     .final-cta-btn { padding: 16px 40px; font-size: 12px; }
 
     /* ─── INSTAGRAM ─── */
+    /* Official Instagram embeds sit inside a dark, restrained frame. The
+       embed cards themselves are Instagram's own cross-origin iframes and
+       cannot be restyled; we only control the section around them. */
     .instagram-section {
-      padding: 64px 40px;
+      padding: 56px 40px;
       background: var(--dark2);
       border-top: 1px solid rgba(255,255,255,0.04);
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
-    .instagram-section .films-header { margin-bottom: 28px; }
+    .ig-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
 
-    .instagram-follow-btn { font-size: 10px; padding: 10px 22px; }
+    .ig-intro .section-title { margin-bottom: 10px; }
 
-    .instagram-grid {
+    .ig-embeds {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
       max-width: 1100px;
       margin: 0 auto;
+      align-items: start;
       justify-items: center;
     }
 
-    .instagram-tile {
-      display: block;
-      width: 100%;
-      max-width: 340px;
-      aspect-ratio: 4/5;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--dark3);
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.3s;
+    /* embed.js injects an iframe carrying inline min/max width. Neutralise the
+       min-width so it can share a grid cell, and cap the max so two sit large
+       but balanced side by side. */
+    .ig-embeds .instagram-media {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 420px !important;
+      margin: 0 !important;
     }
 
-    .instagram-tile:hover {
-      border-color: rgba(122,158,175,0.35);
+    .ig-cta {
+      text-align: center;
+      margin-top: 32px;
     }
 
-    .instagram-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .instagram-tile:hover img {
-      transform: scale(1.045);
-    }
+    .instagram-follow-btn { font-size: 10px; padding: 10px 22px; }
 
     /* ─── CONTACT FORM ─── */
     .contact-form-section {
@@ -1645,9 +1643,8 @@
 
       .final-cta-section { padding: 72px 20px; }
 
-      .instagram-section { padding: 56px 20px; }
-      .instagram-grid { grid-template-columns: 1fr; gap: 16px; }
-      .instagram-tile { max-width: 100%; }
+      .instagram-section { padding: 48px 20px; }
+      .ig-embeds { grid-template-columns: 1fr; gap: 24px; max-width: 420px; }
 
       .contact-form-section { padding: 64px 20px; }
       .inquiry-form { padding: 24px; }

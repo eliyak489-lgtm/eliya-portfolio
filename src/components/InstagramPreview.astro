@@ -1,34 +1,47 @@
 ---
-// Homepage Instagram strip — plain local images linking out to the real
-// post, no embed iframe and no Instagram chrome/branding. A card only
-// renders if its image file actually exists in /public/instagram/; if none
-// of the three do, the section renders nothing at all.
-import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { instagramPosts } from '../data/instagram.ts';
+// Homepage Instagram section — official Instagram embeds (not local image
+// cards). We render Instagram's own <blockquote class="instagram-media">
+// markup for each post and let Instagram's embed.js swap it for its real
+// iframe at runtime. The only field we need is the post permalink. If there
+// are no posts, the section renders nothing.
 import { site } from '../data/site.ts';
 
-const posts = instagramPosts
-  .filter((post) => fs.existsSync(fileURLToPath(new URL(`../../public${post.image}`, import.meta.url))))
-  .slice(0, 3);
+// Three posts, in this exact display order. Clean /p/<id>/ permalinks (no
+// query) are what Instagram's embed expects.
+const embeds = [
+  'https://www.instagram.com/p/DbDLOG-IpnG/',
+  'https://www.instagram.com/p/Dae67IdPxOe/',
+  'https://www.instagram.com/p/DUwIz0ViG9I/',
+].map((permalink) => ({ permalink }));
 ---
-{posts.length > 0 && (
+{embeds.length > 0 && (
   <section class="instagram-section" id="instagram">
-    <div class="films-header">
-      <div>
-        <h2 class="section-title">Follow Along</h2>
-      </div>
+    <div class="ig-intro">
+      <p class="section-label">Follow Along</p>
+      <h2 class="section-title">Beyond the work.</h2>
+      <p class="section-sub">Travel, behind the scenes, and the moments in between.</p>
+    </div>
+
+    <div class="ig-embeds">
+      {embeds.map((embed) => (
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink={embed.permalink}
+          data-instgrm-version="14"
+        >
+          <a href={embed.permalink} target="_blank" rel="noopener">View this post on Instagram</a>
+        </blockquote>
+      ))}
+    </div>
+
+    <div class="ig-cta">
       <a href={site.instagramUrl} target="_blank" rel="noopener" class="hero-btn instagram-follow-btn">
-        View more on Instagram
+        View more on Instagram ↗
       </a>
     </div>
 
-    <div class="instagram-grid">
-      {posts.map((post) => (
-        <a href={post.postUrl} target="_blank" rel="noopener" class="instagram-tile" aria-label={post.alt}>
-          <img src={post.image} alt={post.alt} loading="lazy" />
-        </a>
-      ))}
-    </div>
+    <!-- Official Instagram embed script. is:inline keeps Astro from bundling
+         it; on load it processes every .instagram-media blockquote. -->
+    <script is:inline async src="https://www.instagram.com/embed.js"></script>
   </section>
 )}
