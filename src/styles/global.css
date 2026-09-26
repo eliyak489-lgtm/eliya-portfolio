@@ -744,19 +744,9 @@
       height: 32px;
     }
 
-    /* Swift (cropped 973×704, ~1.4:1) — make it bigger */
-    .logos-ticker-track img.logo-swift {
-      height: 55px;
-    }
-
     /* Columbia: 1561×284 — very wide, reduce height to keep it balanced */
     .logos-ticker-track img.logo-columbia {
       height: 24px;
-    }
-
-    /* Landsman (cropped 2344×1194, ~2:1): significantly larger than others */
-    .logos-ticker-track img.logo-landsman {
-      height: 60px;
     }
 
     .logos-ticker-track img.logo-skideal { height: 98px; }
@@ -776,6 +766,26 @@
        than the wordmark logos — sized smaller to match perceived weight. */
     .logos-ticker-track img.logo-oaks {
       height: 36px;
+    }
+
+    /* Beluga (trimmed ~1060×657, ~1.6:1) — already white artwork, no invert
+       needed. Compact ratio close to Swift's — sized up like Swift was, so
+       it doesn't read smaller than the wordmark logos. */
+    .logos-ticker-track img.logo-beluga {
+      height: 54px;
+    }
+
+    /* Paulaner (trimmed ~1184×1186, ~1:1 circular medallion) — already white
+       artwork, no invert needed. Sized up from the initial 34px pass — at
+       34px it read too small/icon-like next to the other client marks. */
+    .logos-ticker-track img.logo-paulaner {
+      height: 48px;
+    }
+
+    /* Tempo (trimmed ~2091×663, ~3.2:1) — already white artwork, no invert
+       needed. Sized up slightly from 32px — it read a touch light/small. */
+    .logos-ticker-track img.logo-tempo {
+      height: 38px;
     }
 
 .logos-ticker-track img:hover {
@@ -1142,13 +1152,14 @@
       .logos-section { padding: 16px 20px 28px; }
       .logos-ticker-track { gap: 36px; }
       .logos-ticker-track img { height: 20px; }
-      .logos-ticker-track img.logo-swift { height: 28px; }
-      .logos-ticker-track img.logo-landsman { height: 31px; }
       .logos-ticker-track img.logo-michelin { height: 17px; }
       .logos-ticker-track img.logo-columbia { height: 13px; }
       .logos-ticker-track img.logo-ishwi { height: 18px; }
       .logos-ticker-track img.logo-mizata { height: 17px; }
       .logos-ticker-track img.logo-oaks { height: 19px; }
+      .logos-ticker-track img.logo-beluga { height: 28px; }
+      .logos-ticker-track img.logo-paulaner { height: 25px; }
+      .logos-ticker-track img.logo-tempo { height: 20px; }
 
       /* Footer */
       .site-footer { padding: 24px 20px; }
