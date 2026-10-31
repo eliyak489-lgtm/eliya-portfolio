@@ -53,8 +53,10 @@ check. Do not add tooling or dependencies without approval.
   Do not add it to the site unless asked.
 - Copy follows `docs/VOICE.md`. Brand values and clients: `docs/BRAND.md`.
 - Visual language: `docs/DESIGN_SYSTEM.md`. Preserve the warm charcoal + olive palette
-  (token names `--blue*` hold the olive accent), the single Akira Expanded moment on the
-  hero name, the light "Behind the Lens" band, and the curated Selected Work rhythm.
+  (token names `--blue*` hold the olive accent), the original geometric ELIYA wordmark PNG
+  in the nav and hero and the original handwritten Eliya signature PNG in the footer
+  (`public/brand/` — never recreate them in type), the light "Behind the Lens" band, and
+  the curated Selected Work rhythm.
 - No redesigns, new sections, placeholder content or "coming soon" states unless the
   approved task calls for them.
 
