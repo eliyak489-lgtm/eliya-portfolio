@@ -6,7 +6,9 @@
 const { base = '' } = Astro.props;
 ---
 <nav id="nav">
-  <a href={base ? `${base}` : '/'} class="nav-logo">EK</a>
+  <a href={base ? `${base}` : '/'} class="nav-logo" aria-label="Eliya Kapach — home">
+    <img src="/brand/eliya-wordmark.png" alt="" width="1240" height="243" />
+  </a>
   <ul class="nav-links">
     <li><a href={`${base}/#films`}>Work</a></li>
     <li><a href={`${base}/#about`}>About</a></li>
