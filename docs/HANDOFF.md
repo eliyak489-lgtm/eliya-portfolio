@@ -13,7 +13,9 @@ of any task that changes them.
   - `549994e` docs: add HANDOFF.
   - `86c240d` feat(a11y): Phase 01.2 keyboard, focus and hero pause control.
   - `b71aaf6` docs: record Phase 01.2 in HANDOFF.
-  - `c71850a` feat(work): add 15 videos. Everything up to here is pushed.
+  - `c71850a` feat(work): add 15 videos.
+  - `45b5d3c` docs: record video additions in HANDOFF.
+  - `8fbded7` feat(logos): add Crazy Line and JR/Duty Free. Everything up to here is pushed.
   - Run `git log origin/main..main` to see anything newer that is still unpushed.
 - Remote is the clean HTTPS URL with no embedded token. Eliya pushes from his Mac.
 - Pre-existing working-tree items. Never stage, revert or delete them:
@@ -65,6 +67,11 @@ of any task that changes them.
   embed). The player is YouTube-only; adding Vimeo would be a video-player change and
   needs approval.
 
+- **Logo ticker additions 2026-11-25:** Crazy Line (`public/logos/crazy-line.png`,
+  350×102) and JR/Duty Free James Richardson (`public/logos/jr-duty-free.webp`), both
+  white artwork (no invert), appended after Tempo. Heights: 32 / 34 px desktop,
+  17 / 18 px mobile. A larger Crazy Line file would render sharper if one exists.
+
 ## Working preferences
 
 - Phased workflow: inspect → plan → implement → validate → report → wait for approval.
@@ -86,8 +93,8 @@ of any task that changes them.
 5. **Thumbnails for the 2026-11-25 videos** are YouTube's auto frames. Swap in chosen
    stills when Eliya provides them. Priority: Oaks Experience, whose YouTube frame is a
    vertical image with blurred side fill.
-6. **More client logos** for the ticker (e.g. ALMERA, ELLA): waiting on logo files
-   from Eliya. Landsman and Swift files exist in `public/logos` but were removed from the
+6. **More client logos** for the ticker (e.g. ALMERA, ELLA, Buskilaz): Crazy Line and
+   JR/Duty Free were added 2026-11-25; others still wait on logo files from Eliya. Landsman and Swift files exist in `public/logos` but were removed from the
    ticker on purpose; don't re-add them unasked.
 7. **Logo ticker motion:** it scrolls indefinitely with no pause control or
    reduced-motion handling (same WCAG 2.2.2 concern as the hero had). Not yet approved.
