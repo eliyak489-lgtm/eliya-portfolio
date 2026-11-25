@@ -4,7 +4,7 @@ Read after the root `CLAUDE.md`, which is the operating protocol and wins on any
 This file records state and decisions that aren't visible in the code. Update it at the end
 of any task that changes them.
 
-## Current state (as of Phase 01.2 accessibility)
+## Current state (as of the 2026-11-25 video additions)
 
 - Production = GitHub `main` → Cloudflare Pages → eliyakapach.com.
 - Recent commits:
@@ -12,7 +12,9 @@ of any task that changes them.
   - `c7c9fce` docs: align brand protocol with ELIYA identity.
   - `549994e` docs: add HANDOFF.
   - `86c240d` feat(a11y): Phase 01.2 keyboard, focus and hero pause control.
-  - Run `git log origin/main..main` to see which of these are still unpushed.
+  - `b71aaf6` docs: record Phase 01.2 in HANDOFF.
+  - `c71850a` feat(work): add 15 videos. Everything up to here is pushed.
+  - Run `git log origin/main..main` to see anything newer that is still unpushed.
 - Remote is the clean HTTPS URL with no embedded token. Eliya pushes from his Mac.
 - Pre-existing working-tree items. Never stage, revert or delete them:
   - `logos/.DS_Store` (deleted)
@@ -49,6 +51,20 @@ of any task that changes them.
   - Known limit: Esc pressed while focus is inside the YouTube iframe doesn't reach the
     page (cross-origin). Close button and backdrop still work.
 
+- **Videos added 2026-11-25 (15, all `selected: false`):** Columbia GRAND TREK Coat and
+  PeakFreak (Outdoor Brands); ALMERA Spa, A Romantic Escape, A Stay at ALMERA and Oaks
+  Experience (Hotels & Resorts); FLYING personal brand film (Travel Films); Beluga x2,
+  Paulaner x3, BUSKILAZ After Movie, DJ Glasser Greece and ELLA (Other Work).
+  - Titles come from the YouTube uploads; descriptions are short placeholders in the
+    same style as the August additions; no `role` set.
+  - DJ Glasser Greece uses client "Daniel Glasser", assumed to be the same person as the
+    existing Daniel Glasser films. Not confirmed.
+  - A second Columbia "Summer Sale" upload (`dz6N1HgItCI`) was deliberately NOT added.
+    The site keeps the original `columbia-summer-sale` (`d-ZhxgWYgWM`).
+- **Adding videos:** every video must be on YouTube as Public or Unlisted (Private won't
+  embed). The player is YouTube-only; adding Vimeo would be a video-player change and
+  needs approval.
+
 ## Working preferences
 
 - Phased workflow: inspect → plan → implement → validate → report → wait for approval.
@@ -67,6 +83,14 @@ of any task that changes them.
 2. **Project title clean-up** in `src/data/projects.ts`.
 3. **Known performance debt:** large unoptimised thumbnails.
 4. **SEO:** no structured data (JSON-LD) and no per-project share images yet.
-5. **Local tooling:** the desktop app's preview launcher points at a stale node path, so
+5. **Thumbnails for the 2026-11-25 videos** are YouTube's auto frames. Swap in chosen
+   stills when Eliya provides them. Priority: Oaks Experience, whose YouTube frame is a
+   vertical image with blurred side fill.
+6. **More client logos** for the ticker (e.g. ALMERA, ELLA): waiting on logo files
+   from Eliya. Landsman and Swift files exist in `public/logos` but were removed from the
+   ticker on purpose; don't re-add them unasked.
+7. **Logo ticker motion:** it scrolls indefinitely with no pause control or
+   reduced-motion handling (same WCAG 2.2.2 concern as the hero had). Not yet approved.
+8. **Local tooling:** the desktop app's preview launcher points at a stale node path, so
    `preview_start` with `.claude/launch.json` fails. Workaround used: run `npm run preview`
    in the background and open `http://localhost:4322` by URL.
