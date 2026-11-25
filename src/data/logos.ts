@@ -10,7 +10,7 @@ export interface Logo {
 
 export const logos: Logo[] = [
   { src: '/logos/michelin_cropped.png',  alt: 'Michelin',        class: 'logo-michelin dark-logo' },
-  { src: '/logos/motorace logo.png',     alt: 'Motorace Israel', class: 'dark-logo' },
+  { src: '/logos/motorace logo.webp',    alt: 'Motorace Israel', class: 'dark-logo' },
   { src: '/logos/BBQ.png',               alt: 'BBQ N More',      class: 'dark-logo' },
   { src: '/logos/columbia.png',          alt: 'Columbia',        class: 'logo-columbia' },
   { src: '/logos/SKIDEAL.png',           alt: 'Skideal',         class: 'logo-skideal' },
@@ -18,8 +18,8 @@ export const logos: Logo[] = [
   { src: '/logos/mizata_cropped.png',    alt: 'Mizata by Antiresort', class: 'logo-mizata' },
   { src: '/logos/oaks.png',              alt: 'OAKS Hotel',      class: 'logo-oaks' },
   { src: '/logos/beluga.png',            alt: 'Beluga',          class: 'logo-beluga' },
-  { src: '/logos/paulaner.png',          alt: 'Paulaner',        class: 'logo-paulaner' },
-  { src: '/logos/tempo.png',             alt: 'Tempo',           class: 'logo-tempo' },
+  { src: '/logos/paulaner.webp',         alt: 'Paulaner',        class: 'logo-paulaner' },
+  { src: '/logos/tempo.webp',            alt: 'Tempo',           class: 'logo-tempo' },
   { src: '/logos/crazy-line.png',        alt: 'Crazy Line',      class: 'logo-crazyline' },
   { src: '/logos/jr-duty-free.webp',     alt: 'JR/Duty Free James Richardson', class: 'logo-jrdutyfree' },
 ];

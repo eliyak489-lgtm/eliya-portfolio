@@ -629,13 +629,13 @@
        The performer sits in the upper-middle of each vertical frame, so bias the
        cover crop upward to keep the subject (and title graphic) in view. Scoped
        to these two files only via src; every other card is unaffected. */
-    .film-thumb[src="/thumbnails/daniel-glasser-1.jpg"] { object-position: center 35%; }
-    .film-thumb[src="/thumbnails/daniel-glasser-2.jpg"] { object-position: center 42%; }
+    .film-thumb[src="/thumbnails/daniel-glasser-1.webp"] { object-position: center 35%; }
+    .film-thumb[src="/thumbnails/daniel-glasser-2.webp"] { object-position: center 42%; }
 
     /* Portrait OAKS "Sun To Star" still-life: book + cup sit in the vertical
        middle, dark blur above, lit linen below — bias the cover crop downward
        so the subject survives the landscape crop. Scoped to this file only. */
-    .film-thumb[src="/thumbnails/oaks-sun-to-star.jpg"] { object-position: center 58%; }
+    .film-thumb[src="/thumbnails/oaks-sun-to-star.webp"] { object-position: center 58%; }
 
     /* Overlay — only visible on hover */
     .film-overlay {

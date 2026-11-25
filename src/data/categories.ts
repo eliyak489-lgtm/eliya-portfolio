@@ -17,14 +17,14 @@ export const categories: CategoryDef[] = [
     slug: 'hotels-resorts',
     title: 'Hotels & Resorts',
     blurb: 'Luxury hospitality and destinations, captured with a cinematic eye.',
-    image: '/thumbnails/oaks-a-ride-through-summer.jpg',
+    image: '/thumbnails/oaks-a-ride-through-summer.webp',
     alt: 'A rider on horseback in a field at golden hour',
   },
   {
     slug: 'outdoor-brands',
     title: 'Outdoor Brands',
     blurb: 'Adventure, equipment, and apparel, told through real movement.',
-    image: '/thumbnails/columbia-summer-sale.jpg',
+    image: '/thumbnails/columbia-summer-sale.webp',
     alt: 'Close-up of a Columbia running shoe on rocky ground under a blue sky',
   },
   {
@@ -33,7 +33,7 @@ export const categories: CategoryDef[] = [
     slug: 'commercials',
     title: 'Other Work',
     blurb: 'Commercial and brand work across clients and formats.',
-    image: '/thumbnails/daniel-glasser-3.jpg',
+    image: '/thumbnails/daniel-glasser-3.webp',
     alt: 'A person with arms open at a beachside ceremony at dusk',
   },
   {
