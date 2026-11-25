@@ -23,6 +23,29 @@
       overflow-x: hidden;
     }
 
+    /* Form controls don't inherit the page font by default (they fell back to
+       Arial); make buttons, inputs and selects use Inter like everything else. */
+    button, input, select, textarea { font-family: inherit; }
+
+    /* Invisible minimum 44x44 tap area (WCAG 2.5.8 / Apple HIG) for small
+       controls, without changing how they look. The ::after layer is centred
+       on the control and only grows past it where the control is smaller. */
+    .nav-logo,
+    .hero-btn { position: relative; }
+    .nav-logo::after,
+    .nav-toggle::after,
+    .hero-btn::after,
+    .hero-video-toggle::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: max(100%, 44px);
+      height: max(100%, 44px);
+      transform: translate(-50%, -50%);
+    }
+    .nav-toggle { position: relative; }
+
     /* ─── NAV ─── */
     nav {
       position: fixed;
