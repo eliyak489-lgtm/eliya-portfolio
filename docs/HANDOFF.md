@@ -72,6 +72,14 @@ of any task that changes them.
   white artwork (no invert), appended after Tempo. Heights: 32 / 34 px desktop,
   17 / 18 px mobile. A larger Crazy Line file would render sharper if one exists.
 
+- **Logos are curated, videos are not.** The ticker shows only brands Eliya is proud
+  to be associated with. Having a video for a client does NOT mean their logo belongs
+  in the ticker. Never suggest or chase logos to match the video list; add one only
+  when Eliya supplies it. Videos, by contrast, go on the site whenever Eliya is proud of
+  the work, whoever the client is.
+  - Landsman and Swift files exist in `public/logos` but were removed from the ticker on
+    purpose; don't re-add them unasked.
+
 ## Working preferences
 
 - Phased workflow: inspect → plan → implement → validate → report → wait for approval.
@@ -93,11 +101,8 @@ of any task that changes them.
 5. **Thumbnails for the 2026-11-25 videos** are YouTube's auto frames. Swap in chosen
    stills when Eliya provides them. Priority: Oaks Experience, whose YouTube frame is a
    vertical image with blurred side fill.
-6. **More client logos** for the ticker (e.g. ALMERA, ELLA, Buskilaz): Crazy Line and
-   JR/Duty Free were added 2026-11-25; others still wait on logo files from Eliya. Landsman and Swift files exist in `public/logos` but were removed from the
-   ticker on purpose; don't re-add them unasked.
-7. **Logo ticker motion:** it scrolls indefinitely with no pause control or
+6. **Logo ticker motion:** it scrolls indefinitely with no pause control or
    reduced-motion handling (same WCAG 2.2.2 concern as the hero had). Not yet approved.
-8. **Local tooling:** the desktop app's preview launcher points at a stale node path, so
+7. **Local tooling:** the desktop app's preview launcher points at a stale node path, so
    `preview_start` with `.claude/launch.json` fails. Workaround used: run `npm run preview`
    in the background and open `http://localhost:4322` by URL.
