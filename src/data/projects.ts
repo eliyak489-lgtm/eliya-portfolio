@@ -270,7 +270,7 @@ export const projects: Project[] = [
   // Aftermovies and short films → Other Work
   { slug: 'buskilaz-aftermovie', title: 'BUSKILAZ After Movie', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Aftermovie for DJ Buskilaz.', youtubeId: 'd9a3WHLR2aw',
-    thumbnail: '/thumbnails/buskilaz-aftermovie.jpg', alt: 'Buskilaz aftermovie', selected: false,
+    thumbnail: '/thumbnails/buskilaz-aftermovie.webp', alt: 'Buskilaz aftermovie', selected: false,
     client: 'DJ Buskilaz' },
 
   { slug: 'dj-glasser-greece', title: 'DJ Glasser — Greece Aftermovie', category: 'commercial', category4: 'commercials', tag: 'Commercial',
