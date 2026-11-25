@@ -4,7 +4,7 @@ Read after the root `CLAUDE.md`, which is the operating protocol and wins on any
 This file records state and decisions that aren't visible in the code. Update it at the end
 of any task that changes them.
 
-## Current state (as of 2026-11-25, end-of-page merge)
+## Current state (as of 2026-11-25, vertical videos)
 
 - Production = GitHub `main` → Cloudflare Pages → eliyakapach.com.
 - Recent commits:
@@ -21,8 +21,9 @@ of any task that changes them.
   - `b4d3d61` fix(a11y): polish; `dd0dc48` docs: design review in HANDOFF.
   - `3f8cd7d` feat(work): Eliya's own frame for the BUSKILAZ thumbnail (old YouTube
     `.jpg` left in `public/thumbnails`, unreferenced).
-  - `c9b361f` feat(home): merge final CTA into contact section. Everything up to here
-    is pushed.
+  - `c9b361f` feat(home): merge final CTA into contact section.
+  - `47b1540` feat(work): vertical videos as 9:16 cards and player. Everything up to
+    here is pushed.
   - Run `git log origin/main..main` to see anything newer that is still unpushed.
 - Remote is the clean HTTPS URL with no embedded token. Eliya pushes from his Mac.
 - Pre-existing working-tree items. Never stage, revert or delete them:
@@ -97,6 +98,24 @@ of any task that changes them.
   logo, menu button, hero buttons and hero pause button have an invisible `::after`
   tap area of at least 44x44 px, so their look is unchanged; "Behind the Lens" is an h2.
 
+- **Vertical videos (2026-11-25, approved from a mockup):** Eliya is happy for vertical
+  videos to show as vertical. A project with `vertical: true` (YouTube Shorts) renders
+  as a 9:16 card in a separate "Vertical" band (label "Shot for the phone") below the
+  16:10 grid on `/work` and the category pages (`src/components/VerticalFilms.astro`),
+  and opens in a 9:16 player (modal and project page). Never mix 9:16 cards into the
+  16:10 grids.
+  - The card uses `verticalThumbnail` when set, else `thumbnail`. Six Shorts with
+    landscape thumbnails got YouTube's vertical frame in `public/thumbnails/vertical/`
+    (720 px wide WebP).
+  - Selected Work stays a landscape composition: Ritual x Escape and Swift Optics keep
+    their cards there and only the player turns vertical.
+  - Not marked vertical: Glimpse from MONGOLIA (a Short, but YouTube's frame is square;
+    confirm the format with Eliya).
+  - Columbia Collection's vertical frame has a burned-in Hebrew caption; replace it with
+    a clean frame from Eliya.
+  - New videos: check orientation (`https://www.youtube.com/shorts/<id>` returns 200 for
+    Shorts, 303 otherwise) and set `vertical: true` for 9:16 ones.
+
 ## Design review (2026-11-25, design-taste-frontend + brand docs)
 
 Ranked findings Eliya has seen; each still needs approval before work starts.
@@ -138,8 +157,9 @@ Ranked findings Eliya has seen; each still needs approval before work starts.
 3. **Unused original images** in `public/` (30 files, see "Images are WebP" above).
 4. **SEO:** no structured data (JSON-LD) and no per-project share images yet.
 5. **Thumbnails for the 2026-11-25 videos** are YouTube's auto frames. Swap in chosen
-   stills when Eliya provides them. Priority: Oaks Experience, whose YouTube frame is a
-   vertical image with blurred side fill.
+   stills when Eliya provides them, vertical frames for vertical videos. Eliya has many
+   stills and will send them as a folder of named files (images pasted in chat don't
+   reach the disk). The ELLA frame was shared in chat and is still waiting for a file.
 6. **Logo ticker motion:** it scrolls indefinitely with no pause control or
    reduced-motion handling (same WCAG 2.2.2 concern as the hero had). Not yet approved.
 7. **Local tooling:** the desktop app's preview launcher points at a stale node path, so
