@@ -4,7 +4,7 @@ Read after the root `CLAUDE.md`, which is the operating protocol and wins on any
 This file records state and decisions that aren't visible in the code. Update it at the end
 of any task that changes them.
 
-## Current state (as of the 2026-11-25 video additions)
+## Current state (as of the 2026-11-25 design review and image compression)
 
 - Production = GitHub `main` → Cloudflare Pages → eliyakapach.com.
 - Recent commits:
@@ -15,7 +15,10 @@ of any task that changes them.
   - `b71aaf6` docs: record Phase 01.2 in HANDOFF.
   - `c71850a` feat(work): add 15 videos.
   - `45b5d3c` docs: record video additions in HANDOFF.
-  - `8fbded7` feat(logos): add Crazy Line and JR/Duty Free. Everything up to here is pushed.
+  - `8fbded7` feat(logos): add Crazy Line and JR/Duty Free.
+  - `cf9e536`, `2bc6423` docs: HANDOFF updates (logos, logo curation rule).
+  - `a2e43f5` perf(images): serve 30 heavy images as resized WebP. Everything up to here
+    is pushed.
   - Run `git log origin/main..main` to see anything newer that is still unpushed.
 - Remote is the clean HTTPS URL with no embedded token. Eliya pushes from his Mac.
 - Pre-existing working-tree items. Never stage, revert or delete them:
@@ -80,6 +83,37 @@ of any task that changes them.
   - Landsman and Swift files exist in `public/logos` but were removed from the ticker on
     purpose; don't re-add them unasked.
 
+- **Images are WebP (2026-11-25):** every image over 300 KB the site uses was re-encoded
+  with `cwebp -q 80` to 1920 px wide (landscape), 1440 px (portrait), 1200 px (About
+  portrait) or 192 px tall (logos). Homepage image weight went from ~34 MB to ~2 MB.
+  New images should follow the same sizes; never add multi-MB originals to `public/`.
+  - The 30 original JPEG/PNG files are still in `public/` and no longer referenced.
+    Deleting them needs Eliya's explicit approval.
+- **Polish (2026-11-25):** form controls inherit Inter (they fell back to Arial); the nav
+  logo, menu button, hero buttons and hero pause button have an invisible `::after`
+  tap area of at least 44x44 px, so their look is unchanged; "Behind the Lens" is an h2.
+
+## Design review (2026-11-25, design-taste-frontend + brand docs)
+
+Ranked findings Eliya has seen; each still needs approval before work starts.
+
+1. **Selected Work thumbnails are inconsistent:** some are clean frames, others are
+   YouTube thumbnails with titles and camera branding baked in (Mongolia "A Short Film
+   α7 III", Georgia "EXTREME WINTER α7"). Needs clean 16:9 stills from Eliya, Selected
+   Work first.
+2. ~~Image weight~~ done (`a2e43f5`).
+3. **Desktop hero** is 630 px of a 900 px screen, so "Selected Work" shows on the first
+   screen, and a 45% black overlay dims the reel. Proposal: full-screen desktop hero,
+   darkening only behind the text. Mobile hero stays as tuned.
+4. **Typography:** Inter 800 at 48 px headings clash with the thin geometric wordmark.
+   Proposal: lighter weight with tracking, or a refined display face; show two options.
+5. **End of page reads backwards:** the contact form comes before the "Let's make
+   something worth remembering" CTA, whose button jumps back up to the form; "Start a
+   Project" appears twice. Proposal: merge into one section, headline above the form.
+6. **Project pages are thin:** title, role, video, related only. Proposal: 2–3 sentences
+   of story per Selected Work project, facts from Eliya.
+7. ~~Polish~~ done (fonts, tap areas, About heading). Logo ticker pause is open item 6.
+
 ## Working preferences
 
 - Phased workflow: inspect → plan → implement → validate → report → wait for approval.
@@ -96,7 +130,7 @@ of any task that changes them.
    Expanded" note about `docs/DESIGN_SYSTEM.md`. `docs/BRAND.md`, `docs/CLAUDE.md` and
    `docs/CONTENT_STRATEGY.md` still say "director".
 2. **Project title clean-up** in `src/data/projects.ts`.
-3. **Known performance debt:** large unoptimised thumbnails.
+3. **Unused original images** in `public/` (30 files, see "Images are WebP" above).
 4. **SEO:** no structured data (JSON-LD) and no per-project share images yet.
 5. **Thumbnails for the 2026-11-25 videos** are YouTube's auto frames. Swap in chosen
    stills when Eliya provides them. Priority: Oaks Experience, whose YouTube frame is a
