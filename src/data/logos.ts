@@ -20,4 +20,6 @@ export const logos: Logo[] = [
   { src: '/logos/beluga.png',            alt: 'Beluga',          class: 'logo-beluga' },
   { src: '/logos/paulaner.png',          alt: 'Paulaner',        class: 'logo-paulaner' },
   { src: '/logos/tempo.png',             alt: 'Tempo',           class: 'logo-tempo' },
+  { src: '/logos/crazy-line.png',        alt: 'Crazy Line',      class: 'logo-crazyline' },
+  { src: '/logos/jr-duty-free.webp',     alt: 'JR/Duty Free James Richardson', class: 'logo-jrdutyfree' },
 ];
