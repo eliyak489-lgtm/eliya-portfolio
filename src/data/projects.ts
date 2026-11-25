@@ -195,4 +195,91 @@ export const projects: Project[] = [
     description: 'Video for Daniel Glasser.', youtubeId: 'nouKqBcXmzM',
     thumbnail: '/thumbnails/daniel-glasser-3.jpg', selected: false,
     client: 'Daniel Glasser' },
+
+  // ── Added 2026-11-25 ──
+  // Titles from the YouTube uploads. Thumbnails are YouTube's own frames
+  // (Shorts scaled to 720 px wide); swap in chosen stills later. All kept out
+  // of Selected Work until curated.
+
+  // Columbia → Outdoor Brands
+  { slug: 'columbia-grand-trek', title: 'GRAND TREK Coat', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
+    description: 'Content creation for Columbia.', youtubeId: 'mBz81f7KI-s',
+    thumbnail: '/thumbnails/columbia-grand-trek.jpg', alt: 'Columbia Grand Trek Coat', selected: false,
+    client: 'Columbia' },
+
+  { slug: 'columbia-peakfreak', title: 'PeakFreak Titanium OutDry', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
+    description: 'Content creation for Columbia.', youtubeId: 'Yg7kmvIq_8w',
+    thumbnail: '/thumbnails/columbia-peakfreak.jpg', alt: 'Columbia PeakFreak Titanium OutDry', selected: false,
+    client: 'Columbia' },
+
+  // ALMERA → Hotels & Resorts
+  { slug: 'almera-spa', title: 'Spa', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Hospitality content for ALMERA.', youtubeId: 'j3naBSdKrd0',
+    thumbnail: '/thumbnails/almera-spa.jpg', alt: 'ALMERA spa', selected: false,
+    client: 'ALMERA' },
+
+  { slug: 'almera-romantic-escape', title: 'A Romantic Escape', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Hospitality content for ALMERA.', youtubeId: 'IQ4jlJh9wxY',
+    thumbnail: '/thumbnails/almera-romantic-escape.jpg', alt: 'A romantic escape at ALMERA', selected: false,
+    client: 'ALMERA' },
+
+  { slug: 'almera-a-stay', title: 'A Stay at ALMERA', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Hospitality content for ALMERA.', youtubeId: 'KV_9q9Rmob8',
+    thumbnail: '/thumbnails/almera-a-stay.jpg', alt: 'A stay at ALMERA', selected: false,
+    client: 'ALMERA' },
+
+  // OAKS Hotel → Hotels & Resorts
+  { slug: 'oaks-experience', title: 'Oaks Experience', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
+    description: 'Hospitality content for OAKS Hotel.', youtubeId: 'l-dr1wmzryM',
+    thumbnail: '/thumbnails/oaks-experience.jpg', alt: 'Oaks Experience', selected: false,
+    client: 'OAKS Hotel' },
+
+  // FLYING → Travel Films
+  { slug: 'flying-personal-brand', title: 'FLYING', category: 'travel', category4: 'travel-films', tag: 'Travel Film',
+    description: 'A personal brand film.', youtubeId: '5HsGL4OWy28',
+    thumbnail: '/thumbnails/flying-personal-brand.jpg', alt: 'FLYING', selected: false,
+    client: 'Eliya Kapach' },
+
+  // Beluga → Other Work
+  { slug: 'beluga-event', title: 'BELUGA Event', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Event content for Beluga.', youtubeId: 'yT2qBZuDF2E',
+    thumbnail: '/thumbnails/beluga-event.jpg', alt: 'Beluga event', selected: false,
+    client: 'Beluga' },
+
+  { slug: 'beluga-vibe', title: 'BELUGA Vibe', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Content creation for Beluga.', youtubeId: '-iB0NTYowqE',
+    thumbnail: '/thumbnails/beluga-vibe.jpg', alt: 'Beluga vibe', selected: false,
+    client: 'Beluga' },
+
+  // Paulaner → Other Work
+  { slug: 'paulaner-this-is-oktoberfest', title: 'This is Oktoberfest', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Content creation for Paulaner.', youtubeId: 'pJ-VS0JIk2I',
+    thumbnail: '/thumbnails/paulaner-this-is-oktoberfest.jpg', alt: 'Paulaner, This is Oktoberfest', selected: false,
+    client: 'Paulaner' },
+
+  { slug: 'paulaner-oktoberfest-sound', title: 'Oktoberfest Sound', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Content creation for Paulaner.', youtubeId: '0YYIQikTxfE',
+    thumbnail: '/thumbnails/paulaner-oktoberfest-sound.jpg', alt: 'Paulaner Oktoberfest sound', selected: false,
+    client: 'Paulaner' },
+
+  { slug: 'paulaner-everywhere', title: 'Paulaner Everywhere', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Content creation for Paulaner.', youtubeId: 'JV5MoYmHfrg',
+    thumbnail: '/thumbnails/paulaner-everywhere.jpg', alt: 'Paulaner everywhere', selected: false,
+    client: 'Paulaner' },
+
+  // Aftermovies and short films → Other Work
+  { slug: 'buskilaz-aftermovie', title: 'BUSKILAZ After Movie', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Aftermovie for DJ Buskilaz.', youtubeId: 'd9a3WHLR2aw',
+    thumbnail: '/thumbnails/buskilaz-aftermovie.jpg', alt: 'Buskilaz aftermovie', selected: false,
+    client: 'DJ Buskilaz' },
+
+  { slug: 'dj-glasser-greece', title: 'DJ Glasser — Greece Aftermovie', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'Aftermovie for DJ Glasser in Greece.', youtubeId: 'RtzD9AW-RsI',
+    thumbnail: '/thumbnails/dj-glasser-greece.jpg', alt: 'DJ Glasser Greece aftermovie', selected: false,
+    client: 'Daniel Glasser' },
+
+  { slug: 'ella-fitness-coach', title: 'ELLA — A Fitness Coach Short Film', category: 'commercial', category4: 'commercials', tag: 'Commercial',
+    description: 'A short film about ELLA, a fitness coach.', youtubeId: 'oSXoyX-Uk-M',
+    thumbnail: '/thumbnails/ella-fitness-coach.jpg', alt: 'ELLA, a fitness coach', selected: false,
+    client: 'ELLA' },
 ];
