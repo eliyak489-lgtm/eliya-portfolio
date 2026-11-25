@@ -4,7 +4,7 @@ Read after the root `CLAUDE.md`, which is the operating protocol and wins on any
 This file records state and decisions that aren't visible in the code. Update it at the end
 of any task that changes them.
 
-## Current state (as of the 2026-11-25 design review and image compression)
+## Current state (as of 2026-11-25, end-of-page merge)
 
 - Production = GitHub `main` → Cloudflare Pages → eliyakapach.com.
 - Recent commits:
@@ -17,7 +17,11 @@ of any task that changes them.
   - `45b5d3c` docs: record video additions in HANDOFF.
   - `8fbded7` feat(logos): add Crazy Line and JR/Duty Free.
   - `cf9e536`, `2bc6423` docs: HANDOFF updates (logos, logo curation rule).
-  - `a2e43f5` perf(images): serve 30 heavy images as resized WebP. Everything up to here
+  - `a2e43f5` perf(images): serve 30 heavy images as resized WebP.
+  - `b4d3d61` fix(a11y): polish; `dd0dc48` docs: design review in HANDOFF.
+  - `3f8cd7d` feat(work): Eliya's own frame for the BUSKILAZ thumbnail (old YouTube
+    `.jpg` left in `public/thumbnails`, unreferenced).
+  - `c9b361f` feat(home): merge final CTA into contact section. Everything up to here
     is pushed.
   - Run `git log origin/main..main` to see anything newer that is still unpushed.
 - Remote is the clean HTTPS URL with no embedded token. Eliya pushes from his Mac.
@@ -107,9 +111,10 @@ Ranked findings Eliya has seen; each still needs approval before work starts.
    darkening only behind the text. Mobile hero stays as tuned.
 4. **Typography:** Inter 800 at 48 px headings clash with the thin geometric wordmark.
    Proposal: lighter weight with tracking, or a refined display face; show two options.
-5. **End of page reads backwards:** the contact form comes before the "Let's make
-   something worth remembering" CTA, whose button jumps back up to the form; "Start a
-   Project" appears twice. Proposal: merge into one section, headline above the form.
+5. ~~End of page reads backwards~~ done (`c9b361f`): one contact section, the "Let's make
+   something worth remembering." headline above the form, one Send action.
+   `src/components/FinalCTA.astro` and its `.final-cta-*` CSS (except `.final-cta-title`,
+   now used by the form) are unused; deleting them needs Eliya's approval.
 6. **Project pages are thin:** title, role, video, related only. Proposal: 2–3 sentences
    of story per Selected Work project, facts from Eliya.
 7. ~~Polish~~ done (fonts, tap areas, About heading). Logo ticker pause is open item 6.
