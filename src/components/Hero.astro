@@ -16,6 +16,10 @@
 // top, same as desktop) — just a shorter hero box with the video letterboxed
 // via object-fit: contain instead of cover, so it keeps its full 16:9 frame
 // with no cropping. See the mobile HERO rules in global.css.
+//
+// Accessibility (WCAG 2.2.2): the reel loops indefinitely, so a pause/play
+// button sits in the bottom-right corner. Visitors with
+// prefers-reduced-motion get the reel loaded but paused on its first frame.
 ---
 <link rel="preload" as="image" href="/hero-poster.jpg" media="(max-width: 768px)" />
 <section class="hero">
@@ -42,12 +46,24 @@
     </div>
   </div>
 
+  <button type="button" class="hero-video-toggle" id="heroVideoToggle" aria-label="Pause background video">
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+
   <div class="hero-border"></div>
 </section>
 
 <script>
   const video = document.getElementById('heroVideo') as HTMLVideoElement | null;
+  const toggle = document.getElementById('heroVideoToggle');
   if (video) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Set by the toggle (or reduced motion) so the autoplay fallback below
+    // never restarts a reel the visitor chose to stop.
+    let userPaused = reduceMotion;
+    if (reduceMotion) video.autoplay = false;
+
     // Pick the source once, up front — deliberately not re-checked on
     // resize, matching how <source media=""> would have behaved anyway
     // (browsers only reconsider it on an explicit .load() call).
@@ -58,8 +74,32 @@
     video.addEventListener('canplay', showVideo);
     video.addEventListener('loadeddata', showVideo);
     if (video.readyState >= 3) showVideo();
-    video.play().catch(() => {
-      document.addEventListener('touchstart', () => video.play(), { once: true });
+    const syncToggle = () => {
+      if (!toggle) return;
+      const paused = video.paused;
+      toggle.classList.toggle('is-paused', paused);
+      toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+    };
+    video.addEventListener('play', syncToggle);
+    video.addEventListener('pause', syncToggle);
+
+    toggle?.addEventListener('click', () => {
+      if (video.paused) {
+        userPaused = false;
+        video.play().catch(() => {});
+      } else {
+        userPaused = true;
+        video.pause();
+      }
     });
+
+    if (!reduceMotion) {
+      video.play().catch(() => {
+        document.addEventListener('touchstart', () => {
+          if (!userPaused) video.play();
+        }, { once: true });
+      });
+    }
+    syncToggle();
   }
 </script>

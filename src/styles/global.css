@@ -312,6 +312,43 @@
       background: rgba(156,154,110,0.28);
     }
 
+    /* Pause/play for the looping hero reel (WCAG 2.2.2). Quiet by default,
+       matching the eyebrow pill's hairline border. */
+    .hero-video-toggle {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      z-index: 4;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(237,231,220,0.2);
+      background: rgba(21,19,15,0.35);
+      color: rgba(237,231,220,0.6);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-video-toggle:hover {
+      color: var(--white);
+      border-color: rgba(237,231,220,0.5);
+    }
+
+    .hero-video-toggle:focus-visible {
+      color: var(--white);
+      outline: 2px solid var(--blue-light);
+      outline-offset: 3px;
+    }
+
+    .hero-video-toggle svg { width: 14px; height: 14px; }
+    .hero-video-toggle .icon-play { display: none; }
+    .hero-video-toggle.is-paused .icon-play { display: block; }
+    .hero-video-toggle.is-paused .icon-pause { display: none; }
+
     .hero-border {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -566,6 +603,12 @@
       transform: translateY(-4px);
     }
 
+    /* Keyboard focus: a visible olive ring, plus the same reveal as hover. */
+    .film-card:focus-visible {
+      outline: 2px solid var(--blue-light);
+      outline-offset: 3px;
+    }
+
     .film-thumb {
       position: absolute;
       inset: 0;
@@ -576,7 +619,8 @@
       transition: transform 0.6s ease, filter 0.4s;
     }
 
-    .film-card:hover .film-thumb {
+    .film-card:hover .film-thumb,
+    .film-card:focus-visible .film-thumb {
       transform: scale(1.06);
       filter: saturate(1) brightness(0.75);
     }
@@ -602,7 +646,8 @@
       transition: opacity 0.35s;
     }
 
-    .film-card:hover .film-overlay { opacity: 1; }
+    .film-card:hover .film-overlay,
+    .film-card:focus-visible .film-overlay { opacity: 1; }
 
     /* Info — slides up on hover */
     .film-info {
@@ -615,7 +660,8 @@
       text-align: center;
     }
 
-    .film-card:hover .film-info {
+    .film-card:hover .film-info,
+    .film-card:focus-visible .film-info {
       transform: translateY(0);
       opacity: 1;
     }
@@ -654,7 +700,8 @@
       transition: opacity 0.3s;
     }
 
-    .film-card:hover .play-btn { opacity: 1; }
+    .film-card:hover .play-btn,
+    .film-card:focus-visible .play-btn { opacity: 1; }
 
     .play-circle {
       width: 50px;
@@ -1067,13 +1114,17 @@
       justify-content: center;
       padding: 24px;
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.3s;
+      /* visibility flips after the fade so the closed modal can't take focus */
+      transition: opacity 0.3s, visibility 0s linear 0.3s;
     }
 
     .modal-overlay.open {
       opacity: 1;
+      visibility: visible;
       pointer-events: all;
+      transition: opacity 0.3s, visibility 0s;
     }
 
     .modal-video {
@@ -1103,11 +1154,17 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 50%;
       color: rgba(237,231,220,0.4);
       transition: color 0.2s;
     }
 
-    .modal-close:hover { color: var(--white); }
+    .modal-close:hover,
+    .modal-close:focus-visible { color: var(--white); }
+    .modal-close:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 2px; }
 
     .modal-close svg { width: 24px; height: 24px; }
 
@@ -1129,6 +1186,7 @@
       .hero-bg { background-image: url('/hero-poster.jpg'); }
       .nav-logo img { height: 17px; }
       .hero-wordmark { width: min(240px, 64vw); }
+      .hero-video-toggle { right: 16px; bottom: 16px; }
       .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; padding: 6px 14px; white-space: nowrap; }
       .hero-available { text-align: center; }
       .hero-buttons { justify-content: center; flex-wrap: nowrap; }
@@ -1148,6 +1206,8 @@
       .films-grid--selected { grid-template-columns: 1fr; gap: 14px; max-width: 520px; }
       .films-grid--selected > .film-card { grid-column: auto !important; }
       .films-grid--selected > .film-card:nth-child(3) { aspect-ratio: 16 / 9; }
+      /* Mobile Selected Work never shows titles, even on keyboard focus. */
+      .films-grid--selected > .film-card:focus-visible .film-info { opacity: 0; }
 
       /* Tabs — horizontal scroll strip instead of wrapping/overflowing */
       .films-tabs {
