@@ -1,0 +1,24 @@
+---
+// Band of 9:16 cards for vertical videos (YouTube Shorts), shown below the
+// landscape grid on /work and the category pages. Keeping them in their own
+// band keeps the 16:10 grid rhythm intact. Renders nothing when empty.
+import type { Project } from '../data/projects.ts';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props { items: Project[]; id?: string; }
+const { items, id } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="films-section films-section--vertical" aria-labelledby="vertical-films-title">
+    <div class="films-header">
+      <div>
+        <p class="section-label">Shot for the phone</p>
+        <h2 class="section-title" id="vertical-films-title">Vertical</h2>
+      </div>
+      <span class="films-count">{items.length} Films</span>
+    </div>
+    <div class="films-grid films-grid--vertical" id={id}>
+      {items.map((project) => <ProjectCard project={project} vertical />)}
+    </div>
+  </section>
+)}

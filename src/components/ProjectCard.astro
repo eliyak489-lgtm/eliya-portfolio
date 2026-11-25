@@ -6,12 +6,13 @@
 import type { Project } from '../data/projects.ts';
 import { placeholders } from '../data/placeholders.ts';
 
-interface Props { project: Project; }
-const { project } = Astro.props;
+interface Props { project: Project; vertical?: boolean; }
+const { project, vertical = false } = Astro.props;
+const thumb = vertical ? (project.verticalThumbnail ?? project.thumbnail) : project.thumbnail;
 ---
-<a class="film-card" href={`/project/${project.slug}/`} data-category={project.category4}>
-  {project.thumbnail ? (
-    <img class="film-thumb" src={project.thumbnail} alt={project.alt || project.title} loading="lazy" />
+<a class:list={["film-card", { "film-card--vertical": vertical }]} href={`/project/${project.slug}/`} data-category={project.category4}>
+  {thumb ? (
+    <img class="film-thumb" src={thumb} alt={project.alt || project.title} loading="lazy" />
   ) : (
     <div class="film-thumb film-thumb-placeholder">{placeholders.cardComingSoon}</div>
   )}

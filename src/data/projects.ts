@@ -44,6 +44,10 @@ export interface Project {
   gallery?: string[];
   bts?: string[];
   deliverables?: string[];
+
+  // ── Vertical (9:16) videos, i.e. YouTube Shorts ──
+  vertical?: boolean;            // true = vertical card band + 9:16 player
+  verticalThumbnail?: string;    // 9:16 card image when `thumbnail` is landscape
 }
 
 export const projects: Project[] = [
@@ -74,7 +78,8 @@ export const projects: Project[] = [
   { slug: 'ritual-x-escape', title: 'Ritual x Escape', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'A cinematic portrait of Ritual x Escape at OAKS Hotel.', youtubeId: '9IV2a8Qxta0',
     thumbnail: '/thumbnails/oaks-resort-1440.webp', alt: 'Ritual x Escape', featured: true, selected: true,
-    client: 'OAKS Hotel', role: 'Director, Cinematographer, Editor, Colorist.' },
+    client: 'OAKS Hotel', role: 'Director, Cinematographer, Editor, Colorist.',
+    vertical: true },
 
   { slug: 'skideal-1', title: 'SKIDEAL', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Travel Agency Content', youtubeId: '9NpmeWyhrGI',
@@ -108,7 +113,8 @@ export const projects: Project[] = [
   // ── Commercials ──
   { slug: 'columbia-collection', title: 'COLUMBIA Collection content.', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'Content creation', youtubeId: 'd3XDuQyPynU',
-    thumbnail: '/thumbnails/columbia-polo.webp', alt: 'Columbia Polo', selected: false },
+    thumbnail: '/thumbnails/columbia-polo.webp', alt: 'Columbia Polo', selected: false,
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/columbia-collection.webp' },
 
   { slug: 'columbia-travel', title: 'COLUMBIA Travel Collection', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'Content creation', youtubeId: 'E0hv_Tgnp1Q',
@@ -116,7 +122,8 @@ export const projects: Project[] = [
 
   { slug: 'swift-optics', title: 'SWIFT OPTICS', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'An E-Commerce Commercial', youtubeId: 'xrxgmFpYzoQ',
-    thumbnail: '/thumbnails/swift44.webp', alt: 'Swift', selected: true },
+    thumbnail: '/thumbnails/swift44.webp', alt: 'Swift', selected: true,
+    vertical: true },
 
   { slug: 'landsman', title: 'Landsman', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Real Estate Aftermovie', youtubeId: 'mswaWP3gH9o',
@@ -149,22 +156,26 @@ export const projects: Project[] = [
   { slug: 'oaks-a-ride-through-summer', title: 'A Ride Through Summer', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for OAKS Hotel.', youtubeId: 'fhCBChG4_mU',
     thumbnail: '/thumbnails/oaks-a-ride-through-summer.webp', selected: false,
-    client: 'OAKS Hotel' },
+    client: 'OAKS Hotel',
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/oaks-a-ride-through-summer.webp' },
 
   { slug: 'oaks-beyond-the-stay', title: 'Beyond The Stay', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for OAKS Hotel.', youtubeId: 'P3RaOZFMnfo',
     thumbnail: '/thumbnails/oaks-beyond-the-stay.jpeg', selected: false,
-    client: 'OAKS Hotel' },
+    client: 'OAKS Hotel',
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/oaks-beyond-the-stay.webp' },
 
   { slug: 'oaks-summer-by-the-pool', title: 'Summer by the Pool', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for OAKS Hotel.', youtubeId: '21iZA6JokbQ',
     thumbnail: '/thumbnails/oaks-summer-by-the-pool.webp', selected: false,
-    client: 'OAKS Hotel' },
+    client: 'OAKS Hotel',
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/oaks-summer-by-the-pool.webp' },
 
   { slug: 'oaks-sun-to-star', title: 'Sun To Star', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for OAKS Hotel.', youtubeId: 'aenusqAus3E',
     thumbnail: '/thumbnails/oaks-sun-to-star.webp', selected: false,
-    client: 'OAKS Hotel' },
+    client: 'OAKS Hotel',
+    vertical: true },
 
   // ── Columbia → Outdoor Brands (added 2026-08-13) ──
   // Landscape card thumbnails pending; kept out of Selected Work until chosen.
@@ -184,7 +195,8 @@ export const projects: Project[] = [
   { slug: 'daniel-glasser-1', title: 'Daniel Glasser — Film 01', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Video for Daniel Glasser.', youtubeId: 'vFqEQ1r4K80',
     thumbnail: '/thumbnails/daniel-glasser-1.webp', selected: false,
-    client: 'Daniel Glasser' },
+    client: 'Daniel Glasser',
+    vertical: true },
 
   { slug: 'daniel-glasser-2', title: 'Daniel Glasser — Film 02', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Video for Daniel Glasser.', youtubeId: 'A9DjVCW1wEY',
@@ -194,7 +206,8 @@ export const projects: Project[] = [
   { slug: 'daniel-glasser-3', title: 'Daniel Glasser — Film 03', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Video for Daniel Glasser.', youtubeId: 'nouKqBcXmzM',
     thumbnail: '/thumbnails/daniel-glasser-3.webp', selected: false,
-    client: 'Daniel Glasser' },
+    client: 'Daniel Glasser',
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/daniel-glasser-3.webp' },
 
   // ── Added 2026-11-25 ──
   // Titles from the YouTube uploads. Thumbnails are YouTube's own frames
@@ -205,34 +218,40 @@ export const projects: Project[] = [
   { slug: 'columbia-grand-trek', title: 'GRAND TREK Coat', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'Content creation for Columbia.', youtubeId: 'mBz81f7KI-s',
     thumbnail: '/thumbnails/columbia-grand-trek.jpg', alt: 'Columbia Grand Trek Coat', selected: false,
-    client: 'Columbia' },
+    client: 'Columbia',
+    vertical: true },
 
   { slug: 'columbia-peakfreak', title: 'PeakFreak Titanium OutDry', category: 'commercial', category4: 'outdoor-brands', tag: 'Commercial',
     description: 'Content creation for Columbia.', youtubeId: 'Yg7kmvIq_8w',
     thumbnail: '/thumbnails/columbia-peakfreak.jpg', alt: 'Columbia PeakFreak Titanium OutDry', selected: false,
-    client: 'Columbia' },
+    client: 'Columbia',
+    vertical: true },
 
   // ALMERA → Hotels & Resorts
   { slug: 'almera-spa', title: 'Spa', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for ALMERA.', youtubeId: 'j3naBSdKrd0',
     thumbnail: '/thumbnails/almera-spa.jpg', alt: 'ALMERA spa', selected: false,
-    client: 'ALMERA' },
+    client: 'ALMERA',
+    vertical: true },
 
   { slug: 'almera-romantic-escape', title: 'A Romantic Escape', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for ALMERA.', youtubeId: 'IQ4jlJh9wxY',
     thumbnail: '/thumbnails/almera-romantic-escape.jpg', alt: 'A romantic escape at ALMERA', selected: false,
-    client: 'ALMERA' },
+    client: 'ALMERA',
+    vertical: true },
 
   { slug: 'almera-a-stay', title: 'A Stay at ALMERA', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for ALMERA.', youtubeId: 'KV_9q9Rmob8',
     thumbnail: '/thumbnails/almera-a-stay.jpg', alt: 'A stay at ALMERA', selected: false,
-    client: 'ALMERA' },
+    client: 'ALMERA',
+    vertical: true },
 
   // OAKS Hotel → Hotels & Resorts
   { slug: 'oaks-experience', title: 'Oaks Experience', category: 'commercial', category4: 'hotels-resorts', tag: 'Commercial',
     description: 'Hospitality content for OAKS Hotel.', youtubeId: 'l-dr1wmzryM',
     thumbnail: '/thumbnails/oaks-experience.jpg', alt: 'Oaks Experience', selected: false,
-    client: 'OAKS Hotel' },
+    client: 'OAKS Hotel',
+    vertical: true, verticalThumbnail: '/thumbnails/vertical/oaks-experience.webp' },
 
   // FLYING → Travel Films
   { slug: 'flying-personal-brand', title: 'FLYING', category: 'travel', category4: 'travel-films', tag: 'Travel Film',
@@ -244,28 +263,33 @@ export const projects: Project[] = [
   { slug: 'beluga-event', title: 'BELUGA Event', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Event content for Beluga.', youtubeId: 'yT2qBZuDF2E',
     thumbnail: '/thumbnails/beluga-event.jpg', alt: 'Beluga event', selected: false,
-    client: 'Beluga' },
+    client: 'Beluga',
+    vertical: true },
 
   { slug: 'beluga-vibe', title: 'BELUGA Vibe', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Content creation for Beluga.', youtubeId: '-iB0NTYowqE',
     thumbnail: '/thumbnails/beluga-vibe.jpg', alt: 'Beluga vibe', selected: false,
-    client: 'Beluga' },
+    client: 'Beluga',
+    vertical: true },
 
   // Paulaner → Other Work
   { slug: 'paulaner-this-is-oktoberfest', title: 'This is Oktoberfest', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Content creation for Paulaner.', youtubeId: 'pJ-VS0JIk2I',
     thumbnail: '/thumbnails/paulaner-this-is-oktoberfest.jpg', alt: 'Paulaner, This is Oktoberfest', selected: false,
-    client: 'Paulaner' },
+    client: 'Paulaner',
+    vertical: true },
 
   { slug: 'paulaner-oktoberfest-sound', title: 'Oktoberfest Sound', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Content creation for Paulaner.', youtubeId: '0YYIQikTxfE',
     thumbnail: '/thumbnails/paulaner-oktoberfest-sound.jpg', alt: 'Paulaner Oktoberfest sound', selected: false,
-    client: 'Paulaner' },
+    client: 'Paulaner',
+    vertical: true },
 
   { slug: 'paulaner-everywhere', title: 'Paulaner Everywhere', category: 'commercial', category4: 'commercials', tag: 'Commercial',
     description: 'Content creation for Paulaner.', youtubeId: 'JV5MoYmHfrg',
     thumbnail: '/thumbnails/paulaner-everywhere.jpg', alt: 'Paulaner everywhere', selected: false,
-    client: 'Paulaner' },
+    client: 'Paulaner',
+    vertical: true },
 
   // Aftermovies and short films → Other Work
   { slug: 'buskilaz-aftermovie', title: 'BUSKILAZ After Movie', category: 'commercial', category4: 'commercials', tag: 'Commercial',

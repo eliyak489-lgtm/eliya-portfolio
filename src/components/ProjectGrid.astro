@@ -5,13 +5,17 @@
 import { projects } from '../data/projects.ts';
 import { categories } from '../data/categories.ts';
 import ProjectCard from './ProjectCard.astro';
+import VerticalFilms from './VerticalFilms.astro';
+
+const landscape = projects.filter((p) => !p.vertical);
+const verticals = projects.filter((p) => p.vertical);
 ---
 <section class="films-section">
   <div class="films-header">
     <div>
       <h2 class="section-title">All Projects</h2>
     </div>
-    <span class="films-count">{projects.length} Projects</span>
+    <span class="films-count">{landscape.length} Projects</span>
   </div>
 
   <div class="films-tabs">
@@ -22,12 +26,16 @@ import ProjectCard from './ProjectCard.astro';
   </div>
 
   <div class="films-grid" id="projectsGrid">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {landscape.map((project) => <ProjectCard project={project} />)}
   </div>
 </section>
 
+<VerticalFilms items={verticals} id="verticalGrid" />
+
 <script>
   const grid = document.getElementById('projectsGrid');
+  const verticalGrid = document.getElementById('verticalGrid');
+  const verticalBand = verticalGrid?.closest<HTMLElement>('.films-section') ?? null;
   const tabs = grid?.closest('.films-section')?.querySelector<HTMLElement>('.films-tabs');
 
   if (grid && tabs) {
@@ -40,7 +48,16 @@ import ProjectCard from './ProjectCard.astro';
       tabs.querySelectorAll('.tab-btn').forEach((t) => t.classList.remove('active'));
       btn.classList.add('active');
 
-      grid.querySelectorAll<HTMLElement>('.film-card').forEach((card) => {
+      // The vertical band follows the same filter; hide it when it has no match.
+      if (verticalGrid && verticalBand) {
+        const anyVertical = Array.from(verticalGrid.querySelectorAll<HTMLElement>('.film-card'))
+          .some((card) => category === 'all' || card.dataset.category === category);
+        verticalBand.hidden = !anyVertical;
+      }
+
+      const cards = [grid, verticalGrid].flatMap((g) =>
+        g ? Array.from(g.querySelectorAll<HTMLElement>('.film-card')) : []);
+      cards.forEach((card) => {
         const show = category === 'all' || card.dataset.category === category;
         card.style.opacity = '0';
         card.style.transform = 'translateY(12px)';

@@ -611,6 +611,15 @@
     .films-grid--selected > .film-card:nth-child(7),
     .films-grid--selected > .film-card:nth-child(8) { grid-column: span 3; }
 
+    /* Vertical band (/work, category pages): 9:16 cards for YouTube Shorts,
+       kept apart from the 16:10 grid so each grid keeps one rhythm. */
+    .films-section--vertical { padding-top: 0; }
+    .films-grid--vertical { grid-template-columns: repeat(5, 1fr); }
+    .film-card.film-card--vertical { aspect-ratio: 9 / 16; }
+    .film-card--vertical .film-info { padding: 20px 18px; }
+    .film-card--vertical .film-title { font-size: 15px; }
+    .film-card--vertical .film-desc { display: none; }
+
     .film-card {
       position: relative;
       border-radius: 10px;
@@ -1173,6 +1182,14 @@
 
     .modal-overlay.open .modal-video { transform: scale(1); }
 
+    /* Vertical videos: a 9:16 frame as tall as fits, never wider than the screen. */
+    .modal-video.is-vertical {
+      aspect-ratio: 9 / 16;
+      width: auto;
+      max-width: none;
+      height: min(86vh, 860px, calc((100vw - 48px) * 16 / 9));
+    }
+
     .modal-video iframe {
       width: 100%;
       height: 100%;
@@ -1231,6 +1248,8 @@
       /* Films */
       .films-section { padding: 60px 20px; }
       .films-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .films-grid--vertical { grid-template-columns: 1fr 1fr; }
+      .film-card--vertical .film-info { padding: 14px; }
       .film-info { padding: 18px 20px; }
 
       /* Selected Work on mobile: a single clean column — large readable
@@ -1852,6 +1871,14 @@
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* Vertical (9:16) film: centred, as tall as the screen allows. */
+    .cs-video-wrap--vertical {
+      aspect-ratio: 9 / 16;
+      width: auto;
+      height: min(80vh, 760px, calc((100vw - 40px) * 16 / 9));
+      margin: 0 auto;
     }
 
     .cs-gallery-grid {

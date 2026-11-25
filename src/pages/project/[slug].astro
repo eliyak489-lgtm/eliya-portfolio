@@ -72,7 +72,7 @@ const category = categories.find((c) => c.slug === project.category4);
     <div class="cs-block">
       <h3 class="cs-block-label">Film</h3>
       {project.youtubeId ? (
-        <div class="cs-video-wrap">
+        <div class:list={["cs-video-wrap", { "cs-video-wrap--vertical": project.vertical }]}>
           <iframe
             src={`https://www.youtube.com/embed/${project.youtubeId}?rel=0&modestbranding=1`}
             title={project.title}

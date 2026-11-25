@@ -3,6 +3,7 @@ import { categories } from '../../data/categories.ts';
 import { projects } from '../../data/projects.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import VerticalFilms from '../../components/VerticalFilms.astro';
 
 export function getStaticPaths() {
   return categories.map((category) => ({
@@ -12,7 +13,9 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.props;
-const items = projects.filter((p) => p.category4 === category.slug);
+const inCategory = projects.filter((p) => p.category4 === category.slug);
+const items = inCategory.filter((p) => !p.vertical);
+const verticals = inCategory.filter((p) => p.vertical);
 ---
 <BaseLayout
   title={`${category.title} — Eliya Kapach`}
@@ -24,7 +27,7 @@ const items = projects.filter((p) => p.category4 === category.slug);
     <p class="page-hero-sub">{category.blurb}</p>
   </section>
 
-  <section class="films-section">
+  {items.length > 0 && <section class="films-section">
     <div class="films-header">
       <div>
         <h2 class="section-title">Projects</h2>
@@ -34,5 +37,7 @@ const items = projects.filter((p) => p.category4 === category.slug);
     <div class="films-grid">
       {items.map((project) => <ProjectCard project={project} />)}
     </div>
-  </section>
+  </section>}
+
+  <VerticalFilms items={verticals} />
 </BaseLayout>
